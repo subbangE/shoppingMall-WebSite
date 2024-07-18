@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Mall</title>
+    <style>
+        /* CSS 스타일링은 여기에 추가하세요 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 10px;
+            color: #333;
+            text-decoration: none;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        section {
+            padding: 20px;
+        }
+        .product {
+            float: left;
+            width: 30%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product h3 {
+            margin-top: 0;
+        }
+        .product p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Shopping Mall</h1>
+</header>
+<nav>
+    <a href="#">Home</a>
+    <a href="/prod/products">Products</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact</a>
+    <a href="/question">Board</a>
+    <a href="/admin/userlist">userlist</a>
+
+    <span sec:authorize="isAuthenticated()"><a th:href="@{'/mypage/user/' + ${#authentication.principal.userNo}}">My Page</a></span>
+    <span sec:authorize="isAnonymous()"><a th:href="@{/login}">Login</a></span>
+    <span sec:authorize="isAuthenticated()">
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Logout</button>
+        </form>
+    </span>
+    <a href="http://localhost:8080/admin/userlist">userList</a>
+    <!--    <span sec:authentication="principal.authorities"></span>-->
+</nav>
+<section>
+    <div class="product">
+        <img src="product1.jpg" alt="Product 1">
+        <h3>Product 1</h3>
+        <p>$19.99</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="product2.jpg" alt="Product 2">
+        <h3>Product 2</h3>
+        <p>$24.99</p>
+        <button>Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="product3.jpg" alt="Product 3">
+        <h3>Product 3</h3>
+        <p>$14.99</p>
+        <button>Add to Cart</button>
+    </div>
+    <div>
+        <a href="http://localhost:8080/prod/detail/1">상품 바로가깅</a>
+        <a href="http://localhost:8080/prod/products">상품 페이징</a>
+    </div>
+
+    <!-- 필요한 만큼 상품을 추가하세요 -->
+</section>
+<footer>
+    <p>&copy; 2024 Shopping Mall. All rights reserved.</p>
+</footer>
+</body>
+</html>

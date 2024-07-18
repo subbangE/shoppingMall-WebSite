@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 수정</title>
+    <link rel="stylesheet" th:href="@{/css/update.css}">
+</head>
+<body>
+<form id="updateProductForm" th:action="@{/prod/update/{id}(id=${product.productNo})}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="productNo" th:value="${product.productNo}">
+    <div>
+        <label for="productCondition">상품 상태:</label>
+        <select id="productCondition" name="productCondition" th:value="${product.productCondition}" required>
+            <option value="판매 예정">판매 예정</option>
+            <option value="판매 중">판매 중</option>
+            <option value="판매 금지">판매 금지</option>
+            <option value="품절">품절</option>
+        </select>
+    </div>
+    <div>
+        <label for="categoryName">카테고리:</label>
+        <select id="categoryName" name="categoryName" th:value="${product.categoryName}">
+            <option value="산리오">산리오</option>
+            <option value="실바니안 패밀리">실바니안 패밀리</option>
+            <option value="레고">레고</option>
+            <option value="카우스">카우스</option>
+            <option value="베어브릭">베어브릭</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="productName">상품명:</label>
+        <input type="text" id="productName" name="productName" th:value="${product.productName}" required>
+    </div>
+    <div>
+        <label for="productContent">상품 설명:</label>
+        <textarea id="productContent" name="productContent" rows="8" cols="1000" th:text="${product.productContent}" required></textarea>
+    </div>
+    <div>
+        <label for="productPrice">가격:</label>
+        <input type="text" id="productPrice" name="productPrice" th:value="${product.productPrice}" required>
+    </div>
+
+    <div th:each="option : ${product.options}">
+        <input type="hidden" name="optionNo" th:value="${option.optionNo}">
+    <div>
+        <label for="optionName">옵션 이름:</label>
+        <input type="text" id="optionName" name="optionName" th:value="${option.optionName}" required>
+    </div>
+    <div>
+        <label for="optionValue">옵션 값:</label>
+        <input type="text" id="optionValue" name="optionValue" th:value="${option.optionValue}" required>
+    </div>
+    <div>
+        <label for="optionCount">옵션 수량:</label>
+        <input type="text" id="optionCount" name="optionCount" th:value="${option.optionCount}" required>
+    </div>
+    </div>
+
+    <div id="optionsContainer">
+        <!-- 옵션 추가 버튼 클릭하면 옵션들이 여기에 추가됨 -->
+    </div>
+
+    <div>
+        <button type="button" onclick="addOption()">옵션 추가</button>
+    </div>
+    <div>
+        <label for="prodImage">상품 이미지:</label>
+        <input type="file" id="prodImage" name="prodImage" accept="image/*">
+    </div>
+    <div>
+        <button type="submit">상품 수정</button>
+    </div>
+    <div>
+        <a href="/prod/list" class="button">리스트로 이동</a>
+    </div>
+</form>
+<script src="/js/update.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myapp.team.user.mapper.UserMapper">
+
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO user (user_id, user_pw, user_name, user_birth, user_address, user_email)
+        VALUES (#{userId}, #{userPw}, #{userName}, #{userBirth}, #{userAddress}, #{userEmail})
+    </insert>
+
+    <select id="findByUserId" resultType="com.myapp.team.user.model.User" parameterType="String">
+        SELECT * FROM user WHERE user_id = #{userId}
+    </select>
+
+    <select id="findByUserNo" resultType="String">
+        SELECT user_name FROM user WHERE user_no = #{userNo}
+    </select>
+
+    <update id="updateUser" parameterType="String">
+        UPDATE user SET user_name = #{userName}, user_address = #{userAddress}, user_Pw = #{userPw} WHERE user_id = #{userId}
+    </update>
+
+    <select id="getUserByUserNo" parameterType="int">
+        SELECT * FROM user WHERE user_no = #{userNo}
+    </select>
+
+    <select id="getUserByUsername" parameterType="String">
+        SELECT * FROM user WHERE user_name = #{userName}
+    </select>
+    
+    <delete id="deleteUserByUserId" parameterType="String">
+        DELETE FROM user WHERE user_id = #{userId}
+    </delete>
+
+    <select id="getUserNo" resultType="int">
+        SELECT user_no FROM user WHERE user_id = #{userId}
+    </select>
+
+    <select id="findByUserName" parameterType="String">
+        SELECT  * FROM user WHERE user_name = #{userName}
+    </select>
+</mapper>

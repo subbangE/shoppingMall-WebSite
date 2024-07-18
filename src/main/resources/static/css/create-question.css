@@ -1,0 +1,249 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #fff5f5;
+}
+.container {
+    /*width: 55%;*/
+    width: 1000px;
+    height: 750px;
+    margin: 50px auto;
+    padding: 20px;
+    /*background-color: #ffe6e6;*/
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #ff9999;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ff6666;
+}
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ffcccc;
+    border-radius: 5px;
+}
+#questionContent {
+    height: 300px;
+}
+.form-group input[type="file"] {
+    padding: 3px;
+}
+.btn-primary {
+    background-color: #ff6666;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+    font-size: 16px;
+
+}
+.btn-primary:hover {
+    background-color: #ff4d4d;
+}
+.header, .footer {
+    width: 100%;
+    background-color: #ffe6e6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.header-top, .footer-section {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.header-top div, .footer-section div {
+    display: flex;
+    align-items: center;
+}
+.header-top div div, .footer-section div div {
+    margin-right: 20px;
+}
+.header-bottom {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff9999;
+}
+.footer-content {
+    text-align: center;
+    padding: 10px;
+    background: #ffd9d9;
+}
+.footer-text {
+    font-size: 14px;
+    color: #ff6666;
+}
+.form-group-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px; /* 간격을 더 넓게 설정 */
+}
+.form-group-row label {
+    flex: 1;
+    margin-right: 10px;
+    color: #ff6666;
+    font-size: 18px; /* 레이블 글자 크기를 키움 */
+}
+.form-group-row input, .form-group-row textarea {
+    flex: 3;
+    border: 1px solid #ffcccc;
+    padding: 15px; /* 입력 필드의 높이를 높임 */
+    font-size: 16px; /* 입력 필드 글자 크기를 키움 */
+}
+.file-upload {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* 간격을 더 넓게 설정 */
+}
+.file-upload input[type="file"] {
+    margin-left: 10px;
+}
+
+#footer {
+    width: 100%;
+    margin: 100px auto 0;
+    font-size: 12px;
+    line-height: 1.9;
+    color: #888;
+    max-width: 4920px;
+}
+
+#footer .inner {
+    position: relative;
+    display: table;
+    clear: both;
+    width: 100%;
+    background: #f8f8f8;
+    padding: 85px 0 65px 0;
+    margin: 75px auto 0;
+}
+
+#footer .inner_con {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* inner_con01 */
+#footer .inner_con01 {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+#footer .bottom_title {
+    clear: both;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #111;
+    letter-spacing: 1.5px;
+}
+
+#footer .bo_customer {
+    clear: both;
+}
+
+#footer .cs_tel {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#footer .cs_line {
+    float: left;
+    line-height: 1.9;
+    color: #aaa;
+    padding: 0 10px;
+}
+
+#footer .cs_txt {
+    float: left;
+}
+
+#footer .cs_txt2 {
+    clear: both;
+}
+
+#footer .cs_txt2 strong {
+    color: #333;
+    letter-spacing: 0.8px;
+    font-weight: normal;
+}
+
+#footer .bo_bank {
+    clear: both;
+    margin-top: 35px;
+}
+
+#footer .bottom_title_s {
+    clear: both;
+    font-weight: normal;
+    margin-bottom: 2px;
+    color: #111;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+}
+
+#footer .bank_txt {
+    float: left;
+}
+
+#footer .bo_delivery {
+    clear: both;
+    margin-top: 55px;
+}
+/* inner_con01 끝 */
+
+#footer .inner_con2 {
+    float: right;
+    text-align: right;
+    width: 50%;
+    /*box-sizing: border-box;*/
+}
+
+#footer .bottom_title {
+    clear: both;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #111;
+    letter-spacing: 1.5px;
+}
+
+#footer .shop_info {
+    line-height: 2;
+}
+
+#footer .shop_blank {
+    padding-right: 15px;
+}
+
+#footer .shop_blank {
+    padding-right: 15px;
+}
+
+#footer .inner a {
+    color: #888;
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/admin_vars.css}" />
+    <link rel="stylesheet" th:href="@{/css/admin.css}" />
+
+    <style>
+      a,
+      button,
+      input,
+      select,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: none;
+        text-decoration: none;
+        background: none;
+
+        -webkit-font-smoothing: antialiased;
+      }
+
+      menu,
+      ol,
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="div">
+      <div class="admin-side-bar">
+        <div class="sales-manage">
+          <div class="sales">
+            <div class="div2">매출</div>
+          </div>
+          <div class="acm">
+            <img class="bill" src="/images/admin/bill0.png" />
+            <div class="div3">누적 결제 금액</div>
+          </div>
+          <div class="rank">
+            <img class="vip" src="/images/admin/vip0.png" />
+            <div class="div4">등급 분류</div>
+          </div>
+        </div>
+        <div class="product">
+          <div class="prod-manage">
+            <div class="div2">상품 관리</div>
+          </div>
+          <a class="prod-list" href="./prodlist">
+            <img class="list" src="/images/admin/list0.svg" />
+            <div class="div3">상품 리스트</div>
+          </a>
+          <div class="order-list">
+            <img class="order-history" src="/images/admin/order-history0.png" />
+            <div class="div4">주문 내역</div>
+          </div>
+          <a class="prod-list" href="./questionlist">
+            <img class="image-3" src="/images/admin/image-30.png" />
+            <div class="div3">문의내역</div>
+          </a>
+        </div>
+        <div class="member">
+          <div class="member-manage">
+            <div class="div5">회원 관리</div>
+          </div>
+          <a class="admin" href="./userlist">
+            <img class="image-1" src="/images/admin/image-10.png" />
+            <div class="div3">사용자</div>
+          </a>
+          <a class="admin" href="./adminlist">
+            <img class="image-2" src="/images/admin/image-20.png" />
+            <div class="div3">관리자</div>
+          </a>
+        </div>
+        <div class="admin-welcome"><span th:text="${userName}+ '님, 환영합니다'"></span></div>
+      </div>
+      <div class="all-user-frame">
+        <div class="all-user">
+          <div class="_5">전체 유저 (<span th:text="${userRoleAdminCount}" ></span>)</div>
+        </div>
+        <div class="table-head">
+          <div >No</div>
+          <div >아이디</div>
+          <div >이름</div>
+          <div >주소</div>
+          <div >생년월일</div>
+          <div>이메일 주소</div>
+          <div >등급</div>
+          <div >권한</div>
+        </div>
+        <div class="user-frame" th:each="user : ${users}" th:if="${user.role == 'ADMIN'}">
+          <div th:text="${user.userNo}">1234</div>
+          <div th:text="${user.userId}">drv982</div>
+          <div th:text="${user.userName}">김재범</div>
+          <div th:text="${user.userAddress}">부산 진구</div>
+          <div th:text="${user.userBirth}">2024-05-27</div>
+          <div th:text="${user.userEmail}">drv982@naver.com</div>
+          <div th:text="${user.userRank}">White</div>
+          <div>
+            <form action="/admin/grant" method="post">
+              <input type="hidden" name="userId" th:value="${user.userId}"/>
+              <select id="role" name="role">
+                <option value="ADMIN" th:selected="${user.role == 'ADMIN'}">ADMIN</option>
+                <option value="USER" th:selected="${user.role == 'USER'}">USER</option>
+              </select>
+              <button class=""type="submit">확인</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="header">
+        <div class="logo">
+          <a href="./userlist">
+            <img
+                    class="_2-removebg-preview-1"
+                    src="/images/admin/_2-removebg-preview-10.png"
+            />
+          </a>
+          <a href="./userlist">
+            <img
+                    class="_3-removebg-preview-1"
+                    src="/images/admin/_3-removebg-preview-10.png"
+            />
+          </a>
+        </div>
+        <div class="navigation">
+          <div class="dropdown">
+            <div class="label">사용자</div>
+            <img class="chevron-down" src="/images/admin/chevron-down0.svg" />
+          </div>
+          <div class="textfield">
+            <div class="text">검색어를 입력하세요</div>
+            <img class="ic-search" src="/images/admin/ic-search0.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

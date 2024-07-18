@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myapp.team.product.ProductMapper">
+
+  <!-- Admin Product -->
+
+  <!-- 전체 상품 조회 -->
+  <select id="findAllProducts" resultType="Product">
+    SELECT product_no, product_condition, category_name, product_name, product_price, product_content, product_image_name, product_image_path
+    FROM PRODUCTS
+  </select>
+
+  <!-- 상품 ID로 조회 -->
+  <select id="findProductById" parameterType="int" resultType="Product">
+    SELECT product_no, product_condition, category_name, product_name, product_price, product_content, product_image_name, product_image_path
+    FROM PRODUCTS
+    WHERE product_no = #{product_no}
+  </select>
+
+  <insert id="insertProduct" parameterType="com.myapp.team.product.Product" useGeneratedKeys="true" keyProperty="productNo">
+    INSERT INTO PRODUCTS (product_condition, category_name, product_name, product_content, product_price, product_image_name, product_image_path)
+    VALUES (#{productCondition}, #{categoryName}, #{productName}, #{productContent}, #{productPrice}, #{productImageName}, #{productImagePath})
+  </insert>
+
+  <insert id="insertOption" parameterType="com.myapp.team.option.Option">
+    INSERT INTO PRODUCT_OPTION (option_name, option_value, option_count, product_no)
+    VALUES (#{optionName}, #{optionValue}, #{optionCount}, #{productNo})
+  </insert>
+
+  <!-- 상품 수정 -->
+  <update id="updateProduct" parameterType="Product">
+    UPDATE PRODUCTS
+    SET product_name = #{productName},
+        product_condition = #{productCondition},
+        category_name = #{categoryName},
+        product_price = #{productPrice},
+        product_content = #{productContent},
+        product_image_name = #{productImageName},
+        product_image_path = #{productImagePath}
+    WHERE product_no = #{productNo}
+  </update>
+
+  <!-- 옵션 수정 -->
+  <update id="updateOption" parameterType="Option">
+    UPDATE PRODUCT_OPTION
+    SET option_name = #{optionName},
+        option_value = #{optionValue},
+        option_count = #{optionCount},
+        product_no = #{productNo}
+    WHERE option_no = #{optionNo}
+  </update>
+
+
+  <!-- 상품 옵션 삭제 -->
+  <delete id="deleteOptions" parameterType="int">
+    DELETE FROM PRODUCT_OPTION WHERE product_no = #{productNo};
+  </delete>
+<!-- 상품 지우기 -->
+  <delete id="deleteProduct" parameterType="int">
+    DELETE FROM PRODUCTS WHERE product_no = #{productNo};
+  </delete>
+
+  <!-- 카테고리별 상품 조회 -->
+  <select id="findProductsByCategory" parameterType="string" resultType="Product">
+    SELECT product_no, product_condition, category_name, product_name, product_price, product_content, product_image_name, product_image_path
+    FROM PRODUCTS
+    WHERE category_name = #{categoryName}
+  </select>
+
+  <!-- 옵션번호 기준 상품번호 조회 -->
+  <select id="searchProdNoByOptionNo" resultType="Integer">
+    SELECT
+     product_no
+    FROM product_option
+    WHERE option_no = #{ optionNo }
+  </select>
+
+</mapper>

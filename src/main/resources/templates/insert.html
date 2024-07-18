@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 등록</title>
+    <link rel="stylesheet" th:href="@{/css/insert.css}">
+</head>
+<body>
+<!--<h1>상품 등록</h1>-->
+<form id="createProductForm" th:action="@{/prod/insert}" method="post" enctype="multipart/form-data">
+    <div>
+
+        <div>
+            <label for="productCondition"></label>
+            <select id="productCondition" name="productCondition" th:value="${product.productCondition}" required>
+                <option value="판매 예정">판매 예정</option>
+                <option value="판매 중">판매 중</option>
+                <option value="판매 금지">판매 금지</option>
+                <option value="품절">품절</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="categoryName"></label>
+            <select id="categoryName" name="categoryName" th:value="${product.categoryName}">
+                <option value="" disabled selected>카테고리</option>
+                <option value="산리오">산리오</option>
+                <option value="실바니안 패밀리">실바니안 패밀리</option>
+                <option value="레고">레고</option>
+                <option value="카우스">카우스</option>
+                <option value="베어브릭">베어브릭</option>
+            </select>
+<!--            <p th:if="${#fields.hasErrors('category')}"-->
+<!--               th:errorclass="text-danger" th:errors="${product.category}"></p>-->
+        </div>
+    <div>
+        <label for="productName">상품명:</label>
+        <input type="text" id="productName" name="productName" th:value="${product.productName}" required>
+    </div>
+    <div>
+        <label for="productContent">상품 설명:</label>
+        <textarea id="productContent" name="productContent" rows="8" cols="1000" th:text="${product.productContent}" required></textarea>
+    </div>
+    <div>
+        <label for="productPrice">가격:</label>
+        <input type="text" id="productPrice" name="productPrice" th:value="${product.productPrice}" required>
+    </div>
+
+        <div>
+            <label for="optionName">옵션 이름:</label>
+            <input type="text" id="optionName" name="optionName" required>
+        </div>
+        <div>
+            <label for="optionValue">옵션 값:</label>
+            <input type="text" id="optionValue" name="optionValue" required>
+        </div>
+        <div>
+            <label for="optionCount">옵션 수량:</label>
+            <input type="text" id="optionCount" name="optionCount" required>
+        </div>
+
+    <div>
+        <label for="productImageFile">상품 이미지:</label>
+        <input type="file" id="productImageFile" name="productImageFile" accept="image/*">
+    </div>
+<!--    <td><img th:src="@{'/images/'+${product.imageFile}}" width="200"></td>-->
+    <div>
+        <button type="submit">상품 등록</button>
+    </div>
+    <div>
+        <a href="/prod/list" class="button">리스트로 이동</a>
+    </div>
+    </div>
+</form>
+<!-- OOOPTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+<!--<form id="createOptionForm" th:action="@{/insertOption}" method="post" enctype="multipart/form-data">-->
+<!--    <div>-->
+<!--        <label for="optionName">옵션 이름:</label>-->
+<!--        <input type="text" id="optionName" name="optionName" required>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label for="optionValue">옵션 값:</label>-->
+<!--        <input type="text" id="optionValue" name="optionValue" required>-->
+<!--    </div>-->
+<!--    <div>-->
+<!--        <label for="optionCount">옵션 수량:</label>-->
+<!--        <input type="text" id="optionCount" name="optionCount" required>-->
+<!--    </div>-->
+<!--    <div id="optionsContainer"></div>-->
+<!--    &lt;!&ndash; 옵션들이 여기에 추가됨 &ndash;&gt;-->
+<!--    &lt;!&ndash;    <div>&ndash;&gt;-->
+<!--    &lt;!&ndash;        <button type="button" onclick="addOption()">more option</button>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--</form>-->
+
+
+<script src="/js/insert.js"></script>
+</body>
+</html>

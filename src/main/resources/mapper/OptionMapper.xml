@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myapp.team.option.OptionMapper">
+
+  <!-- 옵션 생성 -->
+  <insert id="insertOption" parameterType="com.myapp.team.option.Option">
+    INSERT INTO PRODUCT_OPTION (option_name, option_value, option_count, product_no)
+    VALUES (#{optionName}, #{optionValue}, #{optionCount}, #{productNo})
+  </insert>
+
+  <!-- 옵션 수정 -->
+  <update id="updateOption" parameterType="Option">
+    UPDATE PRODUCT_OPTION
+    SET option_name = #{optionName},
+        option_value = #{optionValue},
+        option_count = #{optionCount},
+        product_no = #{product.productNo}
+    WHERE option_no = #{optionNo}
+  </update>
+
+  <!-- 옵션 삭제 -->
+  <delete id="deleteOption" parameterType="int">
+    DELETE FROM PRODUCT_OPTION
+    WHERE option_no = #{optionNo}
+  </delete>
+
+  <!-- 상품별 옵션 리스트 조회 -->
+  <select id="selectOptionListByProduct" parameterType="int" resultType="Option">
+    SELECT option_no, option_name, option_value, option_count, product_no
+    FROM PRODUCT_OPTION
+    WHERE product_no = #{productNo}
+  </select>
+
+  <!-- 옵션 상품 수량 수정 -->
+  <update id="updateOptionCount" parameterType="Option">
+    UPDATE PRODUCT_OPTION
+    SET option_count = #{optionCount}
+    WHERE option_no = #{optionNo}
+  </update>
+
+
+
+
+
+
+<!--  &lt;!&ndash; 옵션 ID로 조회 &ndash;&gt;-->
+<!--  <select id="findOptionById" parameterType="int" resultType="Option">-->
+<!--    SELECT option_no, option_name, option_count, product_no-->
+<!--    FROM OPTIONS-->
+<!--    WHERE option_no = #{optionNo}-->
+<!--  </select>-->
+
+<!--  &lt;!&ndash; 전체 옵션 조회 &ndash;&gt;-->
+<!--  <select id="findAllOptions" resultType="Option">-->
+<!--    SELECT option_no, option_name, option_count, product_no-->
+<!--    FROM OPTIONS-->
+<!--  </select>-->
+
+</mapper>

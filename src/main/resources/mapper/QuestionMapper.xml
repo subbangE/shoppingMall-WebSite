@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myapp.team.Board.Question.QuestionMapper">
+
+    <select id="getQuestions" resultType="com.myapp.team.Board.Question.Question">
+        SELECT question_no, question_title, user_no
+        FROM question LIMIT #{offset}, #{limit}
+    </select>
+
+    <select id="selectQuestion" parameterType="int" resultType="com.myapp.team.Board.Question.Question">
+        SELECT * FROM question WHERE question_no = #{questionNo}
+    </select>
+
+    <select id="selectQuestionById" parameterType="int" resultType="com.myapp.team.Board.Question.Question">
+        SELECT * FROM question WHERE user_no = #{userNo}
+    </select>
+
+    <insert id="insertQuestion" parameterType="com.myapp.team.Board.Question.Question" useGeneratedKeys="true" keyProperty="questionNo" keyColumn="questionNo">
+        INSERT INTO question (question_title, question_content, user_no)
+        VALUES (#{questionTitle}, #{questionContent}, #{userNo})
+    </insert>
+
+    <update id="updateQuestion" parameterType="map">
+        UPDATE question
+        SET question_title = #{questionTitle}, question_content = #{questionContent}
+        WHERE question_no = #{questionNo}
+    </update>
+
+    <delete id="deleteQuestion" parameterType="int">
+        DELETE FROM question WHERE question_no = #{questionNo}
+    </delete>
+
+</mapper>

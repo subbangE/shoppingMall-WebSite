@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.product-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.product-details {
+    flex: 2;
+    padding-left: 20px;
+}
+
+.product-details h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-details .price {
+    font-size: 22px;
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+.product-details .description {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+.options h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.benefits, .delivery-info {
+    margin-bottom: 20px;
+}
+
+.benefits h2, .delivery-info h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.benefits ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.buy-button, .wishlist-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.buy-button {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.wishlist-button {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.reviews {
+    font-size: 14px;
+    color: #777;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <link rel="stylesheet" th:href="@{/css/list.css}">
+</head>
+<body>
+<main>
+<div class="container">
+    <h1>Product List</h1>
+    <h3><a href="/prod/insert">새 상품 등록하기</a></h3>
+    <h3><a href="/prod/products">상품 페이지로 이동</a></h3>
+
+    <table class="product-table">
+        <thead>
+        <tr>
+            <th>Product Number</th>
+            <th>Product Condition</th>
+            <th>Category</th>
+            <th>Product Name</th>
+            <th>Price</th>
+<!--            <th>Content</th>-->
+            <th>Option</th>
+<!--            <th>Image</th>-->
+            <th>Modify</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="product : ${products}">
+<!--            <td><a th:href="@{/prod/insert/{id}(id=${product.productNo})}" th:text="${product.productNo}">Product No</a></td>-->
+            <td th:text="${product.productNo}"></td>
+            <td th:text="${product.productCondition}"></td>
+            <td th:text="${product.categoryName}"></td>
+            <td th:text="${product.productName}"></td>
+            <td th:text="${product.productPrice}"></td>
+<!--            <td th:text="${product.productContent}"></td>-->
+            <!-- 옵션 -->
+            <td>
+                <ul>
+                    <li th:each="option : ${product.options}">
+                        <span th:text="${option.optionName}"></span>
+                    </li>
+                </ul>
+            </td>
+<!--            <td th:text="${product.options}">Product Option</td>-->
+
+<!--            <td><img th:src="@{'/public/images/'+${product.productImageName}}" width="100"></td>-->
+            <td>
+                <a th:href="@{/prod/update/{id}(id=${product.productNo})}">
+                    <button type="button">수정</button>
+                </a>
+                <form th:action="@{/prod/delete/{id}(id=${product.productNo})}" method="post">
+                    <button type="submit" onclick="return confirm('정말로 삭제합니까?')">삭제</button>
+                </form>
+            </td>
+        </tr>
+
+        </tbody>
+
+    </table>
+</div>
+</main>
+</body>
+</html>

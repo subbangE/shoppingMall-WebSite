@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myapp.team.Board.Answer.AnswerMapper">
+
+    <select id="selectQuestionByNo" parameterType="int" resultType="com.myapp.team.Board.Answer.Answer">
+        SELECT * FROM answer WHERE question_no = #{questionNo}
+    </select>
+
+    <insert id="insertAnswer" parameterType="com.myapp.team.Board.Answer.Answer">
+        INSERT INTO answer (question_no, answer_title, answer_content)
+        VALUES (#{questionNo}, #{answerTitle}, #{answerContent})
+    </insert>
+
+    <update id="updateAnswer">
+        UPDATE answer
+        SET answer_title = #{answerTitle}, answer_content = #{answerContent}
+        WHERE question_no = #{questionNo}
+    </update>
+
+    <delete id="deleteAnswer" parameterType="int">
+        DELETE FROM answer WHERE question_no = #{questionNo}
+    </delete>
+
+</mapper>

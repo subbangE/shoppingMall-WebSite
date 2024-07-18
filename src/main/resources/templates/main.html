@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Main Page</title>
+</head>
+<body>
+<div class="container">
+    <div class="maxwidth">
+    <!-- 헤더 시작 -->
+    <header class="header">
+
+        <div class="inner">
+        <!-- top-bar 시작 -->
+        <div class="top-bar">
+            <!-- 왼쪽 카테고리 -->
+            <div class="top-bar-left">
+                <!-- 로그인/로그아웃 -->
+                <span sec:authorize="isAnonymous()"><a th:href="@{/login}">LOG-IN</a></span>
+                <span sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post">
+                        <button class="logout" type="submit">LOG-OUT</button>
+                    </form>
+                </span>
+                <span sec:authorize="isAnonymous()"><a href="/register">JOIN</a></span>
+                <span sec:authorize="isAuthenticated()"><a th:href="@{'/mypage/user/' + ${#authentication.principal.userNo}}">My Page</a></span>
+                <span sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/admin/userlist}">Admin Page</a></span>
+                <a href="#">ORDER</a>
+                <a href="#">CART</a>
+                <!-- 검색 아이콘 -->
+                <img src="/images/icon-search.png" alt="검색" id="lo_search">
+            </div>
+
+            <!-- 오른쪽 카테고리 -->
+            <div class="top-bar-right">
+                <a href="#" class="notice">NOTICE</a>
+                <a href="#" class="qna">Q&A</a>
+                <a href="#" class="review">REVIEW</a>
+                <!-- 검색 아이콘 -->
+                <a href="https://instagram.com/" target="_blank">
+                    <img src="/images/icon-instagram.png" alt="인스타그램" id="lo_sns">
+                </a>
+            </div>
+
+        </div>
+        <!-- top-bar 끝 -->
+
+            <!-- 로고 -->
+            <div class="top-bar-center">
+                <img src="/images/logo.PNG" alt="Logo" class="logo">
+            </div>
+        </div>
+        <!-- inner End -->
+
+        <!-- 메인 네비게이션 -->
+        <nav class="main-nav">
+            <ul class="main-nav-li">
+                <li><a href="/main">홈</a></li>
+                <li><a href="/prod/products">상품 보기</a></li>
+                <li><a href="#">캐릭터</a></li>
+                <li><a href="#">❤실바니안 패밀리❤</a></li>
+                <li><a href="#">피규어</a></li>
+                <li><a href="#">가챠/랜덤토이</a></li>
+                <li><a href="#">소품&리빙</a></li>
+                <li><a href="#">문구</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- 헤더 끝 -->
+
+
+    <!-- 메인 컨텐츠 시작 -->
+    <main class="main-content">
+        <section class="banner">
+            <img src="/images/main.PNG" alt="main" class="banner-img">
+        </section>
+
+        <!-- 상품 목록 -->
+    <div class="items">
+        <!-- 상품 목록 타이틀 (NEW) -->
+        <div class="h2-new">
+            <h2 class="new-text">NEW</h2>
+        </div>
+
+        <div class="All-item">
+            <ul class="prdList grid4">
+                <!-- 상품들 -->
+                <div class="xans-element- xans-product xans-product-listmain-2 xans-product-listmain xans-product-2 ec-base-product">
+                    <ul class="prdList grid4">
+
+                        <!-- 상품 1 -->
+                        <!-- 상품 사진 -->
+                        <li id="anchorBoxId_111" class="xans-record-">
+                            <div class="thumbnail">
+                                <div class="prdImg">
+                                    <div class="sold_wrap">
+                                        <div class="sold_txt">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <a href="/prod/products" name="anchorBoxName_1133">
+                                        <img src="//dear-basket.com/web/product/medium/202406/b3efb5e0d3901d6aa820750aca789c38.jpg" id="eListPrdImage1133_1" alt="미피 타포린백">
+                                        &nbsp;
+                                    </a>
+                                    <div class="p_over_icon">
+                                        <div class="over_desc">
+                                            <div class="over_bt_icon">
+                                                <img src="/images/icon-cart.png" alt="장바구니 담기" class="ec-admin-icon cart">
+                                        </div>
+                                        <div class="over_wish"><img src="/images/icon-heart.png" class="icon_img ec-product-listwishicon" alt="관심상품 등록 후" productno="1133" categoryno="1" icon_status="on" login_status="T" individual-set="F"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 상품 설명 -->
+                            <div class="description">
+                                <div class="color displaynone">
+                                </div>
+                                <strong class="name">
+                                    <a href="/prod/products" class="">
+                                        <span class="title displaynone"></span>
+                                        <span style="font-size:12px;color:#222222;">Miffy 미피 타포린백</span>
+                                    </a>
+                                </strong>
+                                <ul class="xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2 spec">
+                                    <li rel="판매가" class=" xans-record-">
+                                        <strong class="title displaynone"></strong>
+                                        <span style="font-size:12px;color:#222222;font-weight:bold;">4,000원</span>
+<!--                                        <span id="span_product_tax_type_text1" style=""></span>-->
+                                    </li>
+                                </ul>
+                                <div class="icon">
+                                    <div class="promotion"></div>
+                                </div>
+                            </div>
+                            </div>
+                        </li>
+
+                        <!-- 상품 1 -->
+                        <!-- 상품 사진 -->
+                        <li id="anchorBoxId_12" class="xans-record-">
+                            <div class="thumbnail">
+                                <div class="prdImg">
+                                    <div class="sold_wrap">
+                                        <div class="sold_txt">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <a href="/prod/products" name="anchorBoxName_1133">
+                                        <img src="//dear-basket.com/web/product/medium/202406/b3efb5e0d3901d6aa820750aca789c38.jpg" id="eListPrdImage1133_2" alt="미피 타포린백">
+                                        &nbsp;
+                                    </a>
+                                    <div class="p_over_icon">
+                                        <div class="over_desc">
+                                            <div class="over_bt_icon">
+                                                <img src="/images/icon-cart.png" alt="장바구니 담기" class="ec-admin-icon cart">
+                                            </div>
+                                            <div class="over_wish"><img src="/images/icon-heart.png" class="icon_img ec-product-listwishicon" alt="관심상품 등록 후" productno="1133" categoryno="1" icon_status="on" login_status="T" individual-set="F"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 상품 설명 -->
+                                <div class="description">
+                                    <div class="color displaynone">
+                                    </div>
+                                    <strong class="name">
+                                        <a href="/prod/products" class="">
+                                        <span class="title displaynone"></span>
+                                            <span style="font-size:12px;color:#222222;">Miffy 미피 타포린백
+                                        </span>
+                                        </a>
+                                    </strong>
+                                    <ul class="xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2 spec">
+                                        <li rel="판매가" class=" xans-record-">
+                                            <strong class="title displaynone"></strong>
+                                            <span style="font-size:12px;color:#222222;font-weight:bold;">4,000원
+                                        </span>
+
+                                            <span id="span_product_tax_type_text2" style="">
+                                        </span>
+                                        </li>
+                                    </ul>
+                                    <div class="icon">
+                                        <div class="promotion"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 상품 1 -->
+                        <!-- 상품 사진 -->
+                        <li id="anchorBoxId_13" class="xans-record-">
+                            <div class="thumbnail">
+                                <div class="prdImg">
+                                    <div class="sold_wrap">
+                                        <div class="sold_txt">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <a href="/prod/products" name="anchorBoxName_1133">
+                                        <img src="//dear-basket.com/web/product/medium/202406/b3efb5e0d3901d6aa820750aca789c38.jpg" id="eListPrdImage1133_3" alt="미피 타포린백">
+                                        &nbsp;
+                                    </a>
+                                    <div class="p_over_icon">
+                                        <div class="over_desc">
+                                            <div class="over_bt_icon">
+                                                <img src="/images/icon-cart.png" alt="장바구니 담기" class="ec-admin-icon cart">
+                                            </div>
+                                            <div class="over_wish"><img src="/images/icon-heart.png" class="icon_img ec-product-listwishicon" alt="관심상품 등록 후" productno="1133" categoryno="1" icon_status="on" login_status="T" individual-set="F"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 상품 설명 -->
+                                <div class="description">
+                                    <div class="color displaynone">
+                                    </div>
+                                    <strong class="name">
+                                        <a href="/prod/products" class="">
+                                        <span class="title displaynone"></span>
+                                            <span style="font-size:12px;color:#222222;">Miffy 미피 타포린백
+                                        </span>
+                                        </a>
+                                    </strong>
+                                    <ul class="xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2 spec">
+                                        <li rel="판매가" class=" xans-record-">
+                                            <strong class="title displaynone"></strong>
+                                            <span style="font-size:12px;color:#222222;font-weight:bold;">4,000원
+                                        </span>
+
+                                            <span id="span_product_tax_type_text3" style="">
+                                        </span>
+                                        </li>
+                                    </ul>
+                                    <div class="icon">
+                                        <div class="promotion"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 상품 1 -->
+                        <!-- 상품 사진 -->
+                        <li id="anchorBoxId_14" class="xans-record-">
+                            <div class="thumbnail">
+                                <div class="prdImg">
+                                    <div class="sold_wrap">
+                                        <div class="sold_txt">
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                    <a href="/prod/products" name="anchorBoxName_1133">
+                                        <img src="//dear-basket.com/web/product/medium/202406/b3efb5e0d3901d6aa820750aca789c38.jpg" id="eListPrdImage1133_4" alt="미피 타포린백">
+                                        &nbsp;
+                                    </a>
+                                    <div class="p_over_icon">
+                                        <div class="over_desc">
+                                            <div class="over_bt_icon">
+                                                <img src="/images/icon-cart.png" alt="장바구니 담기" class="ec-admin-icon cart">
+                                            </div>
+                                            <div class="over_wish"><img src="/images/icon-heart.png" class="icon_img ec-product-listwishicon" alt="관심상품 등록 후" productno="1133" categoryno="1" icon_status="on" login_status="T" individual-set="F"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 상품 설명 -->
+                                <div class="description">
+                                    <div class="color displaynone">
+                                    </div>
+                                    <strong class="name">
+                                        <a href="/prod/products" class="">
+                                        <span class="title displaynone"></span>
+                                            <span style="font-size:12px;color:#222222;">Miffy 미피 타포린백
+                                        </span>
+                                        </a>
+                                    </strong>
+                                    <ul class="xans-element- xans-product xans-product-listitem-2 xans-product-listitem xans-product-2 spec">
+                                        <li rel="판매가" class=" xans-record-">
+                                            <strong class="title displaynone"></strong>
+
+                                            <span style="font-size:12px;color:#222222;font-weight:bold;">4,000원
+                                        </span>
+
+                                            <span id="span_product_tax_type_text4" style="">
+                                        </span>
+                                        </li>
+                                    </ul>
+                                    <div class="icon">
+                                        <div class="promotion"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 상품 끝 -->
+
+
+                    </ul>
+                </div>
+            </ul>
+        </div>
+    </div>
+    </main>
+    </div>
+    <!-- maxwidth -->
+
+
+
+    <!-- footer 시작 -->
+    <div id="footer">
+        <div class="inner">
+            <div class="inner_con">
+
+                <div class="inner_con01">
+                    <p class="bottom_title">CS CENTER</p>
+                    <div class="xans-element- xans-layout xans-layout-footer bo_customer "><!-- 고객센터정보 수정 -->
+                        <p class="cs_tel">T. 010-8332-4726</p>
+                        <p class="cs_txt">OPEN PM 14:00 - PM 20:00</p>
+                        <span class="cs_line"> / </span>
+                        <p class="cs_txt">월요일 휴무</p>
+                        <p class="cs_txt2">KAKAOTALK
+                            <strong> @ DAPALA </strong>
+                        </p>
+                        <!-- // 고객센터정보 수정 -->
+                    </div>
+
+                    <div class="bo_bank">
+                        <p class="bottom_title_s">BANK INFO</p>
+                        <!-- 은행정보 수정 -->
+                        <p class="bank_txt">카카오뱅크 3333-10-6021763</p>
+                        <span class="cs_line"> / </span>
+                        <p class="bank_txt">예금주명 ( 서영호 )</p>
+                        <!-- // 은행정보 수정 -->
+                    </div>
+                    <div class="bo_delivery">
+                        <p class="bottom_title_s">DELIVERY &amp; RETURN</p>
+                        <div>
+                            <p>한진택배 1588-0011 [ 배송조회 ]</p>
+                            <p>반품주소 : 아산시 용화고길30번길 20-5 1층 DAPALA</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- inner_con01 끝 -->
+
+                <!-- inner_con02 시작 -->
+                <div class="inner_con2">
+                    <p class="bottom_title">SHOP INFO</p>
+                    <div class="xans-element- xans-layout xans-layout-footer shop_info">
+                        <p>Company. DAPALA
+                            <span class="shop_blank"></span> Owner. 서영호
+                        </p>
+                        <p>Business License. 712-35-00653</p>
+                        <br><p>Tel. 010-8332-4726</p>
+                        <p>Master. 서영호<span class="shop_blank"></span>E-mail. Ho@naver.com</p>
+                        <p>Add. 31572 부산광역시 부산진구 (영호동)</p>
+                        <p>1층</p>
+                    </div>
+                </div>
+                <!-- inner_con02 끝 -->
+            </div>
+        </div>
+    </div>
+    <!-- footer 끝 -->
+</div>
+</body>
+</html>

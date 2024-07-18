@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문 수정</title>
+    <link rel="stylesheet" href="/css/update-qna.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>질문 수정</h1>
+
+    <form action="#" th:action="@{/question/update/{questionNo}(questionNo=${question.questionNo})}" th:object="${question}" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="questionTitle">제목:</label>
+            <input type="text" id="questionTitle" th:field="*{questionTitle}" required />
+        </div>
+        <div>
+            <label for="userName">작성자:</label>
+            <input type="text" id="userName" th:field="*{userName}" disabled />
+            <!-- 숨겨진 필드로 user_no 추가 -->
+            <input type="hidden" th:field="*{userNo}" />
+        </div>
+        <div>
+            <label for="questionContent">내용:</label>
+            <textarea id="questionContent" th:field="*{questionContent}" required></textarea>
+        </div>
+        <div>
+            <label>첨부파일:</label>
+            <div class="field-group">
+                <div class="value" th:if="${#lists.isEmpty(question.attachments)}">
+                    <input type="file" name="newAttachments" />
+                </div>
+                <div class="value" th:if="${!#lists.isEmpty(question.attachments)}">
+                    <div th:each="attachment : ${question.attachments}">
+                        <span th:text="${attachment.originalFilename}"></span>
+                        <input type="checkbox" name="deleteAttachments" th:value="${attachment.attachmentNo}"/> 삭제
+                    </div>
+                    <div>
+                        <input type="file" name="newAttachments" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="submit">수정하기</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

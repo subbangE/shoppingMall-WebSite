@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+</head>
+<body>
+<h1>Admin Page</h1>
+<form action="/admin/grant" method="post">
+    <label for="userId">User ID:</label>
+    <input type="text" id="userId" name="userId"><br>
+    <label for="role">Role:</label>
+    <select id="role" name="role">
+        <option value="ADMIN">ADMIN</option>
+        <option value="USER">USER</option>
+    </select>
+    <button type="submit">Update Role</button>
+</form>
+<p th:text="${message}"></p>
+</body>
+</html>

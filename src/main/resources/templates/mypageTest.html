@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Details</title>
+    <script>
+        function confirmDelete() {
+            if (confirm("정말로 탈퇴하시겠습니까?")) {
+                document.getElementById("deleteForm").submit();
+            } else {
+                alert("계정 삭제가 취소되었습니다.");
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>User Details</h1>
+<form th:action="@{/mypage/update}" method="post" th:object="${user}">
+    <input type="hidden" th:field="*{userNo}"/>
+    <input type="hidden" th:field="*{userId}"/>
+    <p>ID: <span th:text="${user.userId}"></span></p>
+    <p>Name: <input type="text" th:field="*{userName}"/></p>
+    <p>address: <input type="text" th:field="*{userAddress}"/></p>
+    <p>Password: <input type="password" th:field="*{userPw}"/></p>
+    <button type="submit">Update</button>
+</form>
+<form th:action="@{/mypage/delete}" th:object="${user}" method="post">
+    <input type="hidden" th:field="*{userNo}"/>
+    <input type="hidden" th:field="*{userId}"/>
+    <button type="submit" onclick="confirmDelete()">회원탈퇴</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/detail2.css}">
+</head>
+<body>
+
+<div class="container">
+    <div class="maxwidth">
+        <!-- 헤더 시작 -->
+        <header class="header">
+
+            <div class="inner">
+                <!-- top-bar 시작 -->
+                <div class="top-bar">
+                    <!-- 왼쪽 카테고리 -->
+                    <div class="top-bar-left">
+                        <!-- 로그인/로그아웃 -->
+                        <span sec:authorize="isAnonymous()"><a th:href="@{/login}">LOG-IN</a></span>
+                        <span sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post">
+                        <button class="logout" type="submit">LOG-OUT</button>
+                    </form>
+                </span>
+                        <span sec:authorize="isAnonymous()"><a href="/register">JOIN</a></span>
+                        <span sec:authorize="isAuthenticated()"><a th:href="@{'/mypage/user/' + ${#authentication.principal.userNo}}">My Page</a></span>
+                        <a href="#">ORDER</a>
+                        <a href="#">CART</a>
+                        <!-- 검색 아이콘 -->
+                        <img src="/images/icon-search.png" alt="검색" id="lo_search">
+                    </div>
+
+                    <!-- 오른쪽 카테고리 -->
+                    <div class="top-bar-right">
+                        <a href="#" class="notice">NOTICE</a>
+                        <a href="#" class="qna">Q&A</a>
+                        <a href="#" class="review">REVIEW</a>
+                        <!-- 검색 아이콘 -->
+                        <a href="https://instagram.com/" target="_blank">
+                            <img src="/images/icon-instagram.png" alt="인스타그램" id="lo_sns">
+                        </a>
+                    </div>
+
+                </div>
+                <!-- top-bar 끝 -->
+
+                <!-- 로고 -->
+                <div class="top-bar-center">
+                    <img src="/images/logo.PNG" alt="Logo" class="logo">
+                </div>
+            </div>
+            <!-- inner End -->
+
+            <!-- 메인 네비게이션 -->
+            <nav class="main-nav">
+                <ul class="main-nav-li">
+                    <li><a href="/main">홈</a></li>
+                    <li><a href="/prod/products">상품 보기</a></li>
+                    <li><a href="#">캐릭터</a></li>
+                    <li><a href="#">❤실바니안 패밀리❤</a></li>
+                    <li><a href="#">피규어</a></li>
+                    <li><a href="#">가챠/랜덤토이</a></li>
+                    <li><a href="#">소품&리빙</a></li>
+                    <li><a href="#">문구</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- 헤더 끝 -->
+
+        <!-- 메인 컨텐츠 시작 -->
+        <div id="container">
+            <div id="contents">
+                <div class="xans-element- xans-product xans-product-detail">
+                    <div class="headingArea"></div>
+                    <div class="detailArea">
+                        <!-- 이미지 영역 -->
+                        <div class="xans-element- xans-product xans-product-image imgArea">
+                            <div class="keyImg">
+                                <div class="thumbnail">
+<!--                                    <a href="/product/image_zoom2.html?product_no=1123&amp;cate_no=44&amp;display_group=1" alt="P0000BRF" onclick="window.open(this.href, 'image_zoom2', 'toolbar=no,scrollbars=auto,resizable=yes,width=450,height=693,left=0,top=0', this);return false;">-->
+                                        <img th:src="@{${product.productImagePath}}" alt="치이카와 피규어" class="BigImage">
+<!--                                    </a>-->
+                                    <div class="color displaynone"></div>
+                                    <div id="zoom_wrap"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // 이미지 영역 -->
+
+
+                        <!-- 상세정보 내역 -->
+                        <div class="infoArea">
+                            <p class="icon"></p>
+                            <h3><span th:text="${product.productName}"></span></h3>
+
+                            <div class="xans-element- xans-product xans-product-action top_simple_txt">
+                                <p class="displaynone"></p>
+                            </div>
+
+                            <div class="xans-element- xans-product xans-product-detaildesign">
+                                <table border="0" summary="">
+                                    <caption>기본 정보</caption>
+                                    <tbody>
+                                    <tr style="display:none;" class="xans-record-">
+                                        <th scope="row"><span style="font-size:16px;color:#555555;">상품명</span></th>
+                                        <td><span style="font-size:16px;color:#555555;" th:text="${product.productName}">상품 이름</span></td>
+                                    </tr>
+                                    <tr class="xans-record-">
+                                        <th scope="row"><span style="font-size:13px;color:#222222;font-weight:bold;">판매가</span></th>
+                                        <td><span style="font-size:13px;color:#222222;font-weight:bold;" th:text="${product.productPrice} + '원'"><strong id="span_product_price_text">가격</strong>
+                                            <input id="product_price" name="product_price" value="" type="hidden"></span>
+                                        </td>
+                                    </tr>
+                                    <tr class="xans-record-">
+                                        <th scope="row"><span style="font-size:12px;color:#555555;">사용후기</span></th>
+                                        <td><span style="font-size:12px;color:#555555;">0</span></td>
+                                    </tr>
+
+                                    <table border="1" summary="" class="xans-element- xans-product xans-product-option xans-record-"><caption>상품 옵션</caption>
+                                        <tbody></tbody><tbody class="xans-element- xans-product xans-product-option xans-record-"><tr>
+                                            <th scope="row">선택</th>
+                                            <td>
+                                                <select option_product_no="1123" option_select_element="ec-option-select-finder" option_sort_no="1" option_type="T" item_listing_type="C" option_title="선택" product_type="product_option" product_option_area="product_option_1123_0" name="option1" id="product_option_id1" class="ProductOption0" option_style="select" required="true">
+                                                    <option value="*" selected="" link_image="">- [필수] 옵션을 선택해 주세요 -</option>
+                                                    <option value="**" disabled="" link_image="">-------------------</option>
+<!--                                                    <optgroup th:each="option : ${product.options}" th:attr="label=${option.optionName}">-->
+<!--                                                        <option th:value="${option.value}" th:text="${option.optionValue}"></option>-->
+<!--                                                    </optgroup>-->
+                                                </select>
+                                            </td>
+
+                                        </tr></tbody>
+                                        <tbody>
+                                        <tr class="displaynone" id="">
+                                            <td colspan="2" class="selectButton"><a href="#none" class="btnSubmit sizeS" onclick="">옵션선택</a></td>
+                                        </tr></tbody>
+                                    </table>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                                    <div id="totalProducts" class="">
+                                        <table border="1" summary="">
+                                            <caption>상품 목록</caption>
+
+                                            <colgroup>
+                                                <col style="width:284px;">
+                                                <col style="width:80px;">
+                                                <col style="width:110px;">
+                                            </colgroup>
+
+                                            <thead><tr>
+                                                <th scope="col">상품명</th>
+                                                <th scope="col">상품수</th>
+                                                <th scope="col">가격</th>
+                                            </tr></thead>
+
+                                            <tbody class="displaynone"><tr>
+                                                <td><span th:text="${product.productName}"></span></td>
+
+                                                <td>
+                                <span class="quantity">
+                                    <input id="quantity" name="quantity_name" style="" value="0" type="text">
+                                    <a href="javascript:;" class="up QuantityUp"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_up.gif" alt="수량증가"></a>
+                                    <a href="javascript:;" class="down QuantityDown"><img src="//img.echosting.cafe24.com/skin/base/common/btn_quantity_down.gif" alt="수량감소"></a>
+                                </span>
+                                                </td>
+
+                                                <td class="right">
+                                                    <span class="quantity_price">2500</span> <span class="mileage displaynone">(<img src=""> &nbsp;<span class="mileage_price"></span>)</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+
+                    <!-- 나타나는 옵션 -->
+                        <tr class="option_product" data-option-index="1" target-key="1123">
+                            <td>
+                                <input type="hidden" class="option_box_id" id="option_box1_id" value="P0000BRF000A" name="item_code[]" data-item-add-option="" data-item-reserved="N" data-option-id="000A" data-option-index="1">
+                                <p class="product"><span th:text="${product.productName}"></span>
+                                    <br> -
+                                    <span>토끼 가족</span>
+                                </p>
+                            </td>
+                            <td>
+                                <span class="quantity" style="width:65px;">
+                                    <input type="text" id="option_box1_quantity" name="quantity_opt[]" class="quantity_opt eProductQuantityClass" value="1" product-no="1123">
+<!--                                    <a href="#none" class="up eProductQuantityUpClass" data-target="option_box1_up">-->
+<!--                                    <img src="/images/up.PNG" id="option_box1_up" class="option_box_up" alt="수량증가">-->
+<!--                                    </a>-->
+<!--                                    <a href="#none" class="down eProductQuantityDownClass" data-target="option_box1_down">-->
+<!--                                        <img src="/images/down.PNG" id="option_box1_down" class="option_box_down" alt="수량감소">-->
+<!--                                    </a>-->
+                                </span>
+<!--                                <a href="#none" class="delete">-->
+<!--                                    <img src="//img.echosting.cafe24.com/design/skin/default/product/btn_price_delete.gif" alt="삭제" id="option_box1_del" class="option_box_del">-->
+<!--                                </a>-->
+                            </td>
+                            <td class="right">
+                                <span id="option_box1_price">
+                                    <input type="hidden" class="option_box_price" value="3000" product-no="1123" item_code="P0000BRF000A">
+                                    <span class="ec-front-product-item-price" code="P0000BRF000A" product-no="1123">3,000원</span>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                            <!-- Total -->
+                            <div id="totalPrice" class="totalPrice">
+                                <strong>TOTAL : </strong>
+                                <span class="total">
+                                    <strong><em><p th:text="${product.productPrice} + '원'"></p></em></strong> (1개)
+<!--                                    <strong><em><p th:text="decFormat.format(${product.productPrice}) + '원'"></p></em></strong> (1개)-->
+<!--                                    <strong><em><p "${#numbers.formatInteger(th:text="${product.productPrice}", 3, 'COMMA') + '원'}"></p></em></strong> (1개)-->
+                                </span>
+                            </div>
+
+                            <div class="xans-element- xans-product xans-product-action">
+
+                                <!-- 구매 버튼 -->
+                                <div>
+                                    <div class="big_bt">
+                                            <span id="btnBuy">BUY NOW</span>
+                                    </div>
+                                    <div class="small_bt">
+                                        <a href="#" class="btnNormal sizeL">CART</a>
+<!--                                        <span class="btnEm sizeL gFlex2 soldbt displaynone">SOLD OUT</span>-->
+                                        <a href="#" class="btnNormal sizeL">WISH LIST</a>
+                                    </div>
+                                </div>
+                                <!-- // 구매 버튼 -->
+
+
+                            </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    <div class="eventArea displaynone">
+                        <div class="event"></div>
+                    </div>
+                </div>
+
+                <div class="xans-element- xans-product xans-product-additional">
+                    <!-- 상품상세정보 -->
+                    <div id="prdDetail" class="ec-base-tab grid5 ">
+                        <div id="de_tab">
+                            <ul class="ss_menu">
+                                <li class="selected"><a href="#prdDetail">Detail</a></li>
+                                <li>/</li>
+                                <li><span id="detail_guide_tab_title"><a href="#prdInfo">Guide</a></span></li>
+                                <li>/</li>
+                                <li class=""><a href="#prdReview">Review (<strong> 0 </strong>)</a></li>
+                                <li>/</li>
+                                <li class="" id="sso_tab_right" onclick="loadQuestionForm()"><a href="/question/create">Q&amp;A <!-- (<strong> 0 </strong>) -->
+                                </a></li>
+                                <div id="questionFormContainer"></div>
+                            </ul>
+<!--                            <p class="de_tabmenu_blank"></p>-->
+                        </div>
+
+                    </div>
+
+                        <div class="prd_txt_content">
+                            <div class="txt_con">
+                                <h3>상품결제정보</h3>
+                                고액결제의 경우 안전을 위해 카드사에서 확인전화를 드릴 수도 있습니다. 확인과정에서 도난 카드의 사용이나 타인 명의의 주문등
+                                정상적인 주문이 아니라고 판단될 경우 임의로 주문을 보류 또는 취소할 수 있습니다. &nbsp; <br><br>
+                                무통장 입금은 상품 구매 대금은 PC뱅킹, 인터넷뱅킹, 텔레뱅킹 혹은 가까운 은행에서 직접 입금하시면 됩니다. &nbsp;<br>
+                                주문시 입력한&nbsp;입금자명과 실제입금자의 성명이 반드시 일치하여야 하며, 7일 이내로 입금을 하셔야 하며&nbsp;입금되지 않은 주문은 자동취소 됩니다.
+                            </div>
+                            <div class="txt_con">
+                                <h3>배송정보</h3>
+                                <ul class="delivery">
+                                    <li>배송 방법 : 택배</li>
+                                    <li>배송 지역 : 전국지역</li>
+                                    <li>배송 비용 : 2,800원</li>
+                                    <li>배송 기간 : 3일 ~ 7일</li>
+                                    <li>배송 안내 : - 산간벽지나 도서지방은 별도의 추가금액을 지불하셔야 합니다</li>
+                                </ul>
+                            </div>
+                            <div class="txt_con">
+                                <h3>교환 및 반품정보</h3>
+                                <strong>교환 및 반품 주소</strong><br>- [31572] 부산광역시 부산진구 중앙대로 708 5층 다팔아<br><br>
+                                <strong>교환 및 반품이 가능한 경우</strong><br>
+                                - 상품을 공급 받으신 날로부터 7일이내 단, 가전제품의 경우 포장을 개봉하였거나 포장이 훼손되어 상품가치가 상실된 경우에는 교환/반품이 불가능합니다.<br>
+                                - 공급받으신 상품 및 용역의 내용이 표시.광고 내용과 다르거나 다르게 이행된 경우에는 공급받은 날로부터 3월이내, 그사실을 알게 된 날로부터 30일이내<br><br>
+                                <strong>교환 및 반품이 불가능한 경우</strong><br>
+                                - 고객님의 책임 있는 사유로 상품등이 멸실 또는 훼손된 경우. 단, 상품의 내용을 확인하기 위하여 포장 등을 훼손한 경우는 제외<br>
+                                - 포장을 개봉하였거나 포장이 훼손되어 상품가치가 상실된 경우<br>
+                                (예 : 가전제품, 식품, 음반 등, 단 액정화면이 부착된 노트북, LCD모니터, 디지털 카메라 등의 불량화소에 따른 반품/교환은 제조사 기준에 따릅니다.)<br>
+                                - 고객님의 사용 또는 일부 소비에 의하여 상품의 가치가 현저히 감소한 경우 단, 화장품등의 경우 시용제품을 제공한 경우에 한 합니다.<br>
+                                - 시간의 경과에 의하여 재판매가 곤란할 정도로 상품등의 가치가 현저히 감소한 경우<br>
+                                - 복제가 가능한 상품등의 포장을 훼손한 경우<br>
+                                (자세한 내용은 고객만족센터 1:1 E-MAIL상담을 이용해 주시기 바랍니다.)<br><br>
+                                ※ 고객님의 마음이 바뀌어 교환, 반품을 하실 경우 상품반송 비용은 고객님께서 부담하셔야 합니다.<br>
+                                (색상 교환, 사이즈 교환 등 포함)
+                            </div>
+                            <div class="txt_con">
+                                <h3>서비스문의</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // 상품구매안내 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- maxwidth 끝 -->
+
+
+    <!-- footer 시작 -->
+    <div id="footer">
+        <div class="inner">
+            <div class="inner_con">
+                <div class="inner_con01">
+                    <p class="bottom_title">CS CENTER</p>
+                    <div class="xans-element- xans-layout xans-layout-footer bo_customer">
+                        <!-- 고객센터정보 수정 -->
+                        <p class="cs_tel">T. 010-8332-4726</p>
+                        <p class="cs_txt">OPEN PM 14:00 - PM 20:00</p>
+                        <span class="cs_line"> / </span>
+                        <p class="cs_txt">월요일 휴무</p>
+                        <p class="cs_txt2">KAKAOTALK <strong>@ DAPALA</strong></p>
+                        <!-- // 고객센터정보 수정 -->
+                    </div>
+
+                    <div class="bo_bank">
+                        <p class="bottom_title_s">BANK INFO</p>
+                        <!-- 은행정보 수정 -->
+                        <p class="bank_txt">카카오뱅크 3333-10-6021763</p>
+                        <span class="cs_line"> / </span>
+                        <p class="bank_txt">예금주명 ( 서영호 )</p>
+                        <!-- // 은행정보 수정 -->
+                    </div>
+                    <div class="bo_delivery">
+                        <p class="bottom_title_s">DELIVERY &amp; RETURN</p>
+                        <div>
+                            <p>한진택배 1588-0011 [ 배송조회 ]</p>
+                            <p>반품주소 : 부산광역시 부산진구 중앙대로 708 5층 DAPALA</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- inner_con01 끝 -->
+
+                <!-- inner_con02 시작 -->
+                <div class="inner_con2">
+                    <p class="bottom_title">SHOP INFO</p>
+                    <div class="xans-element- xans-layout xans-layout-footer shop_info">
+                        <p>Company. DAPALA <span class="shop_blank"></span> Owner. 서영호</p>
+                        <p>Business License. 712-35-00653</p>
+                        <br><p>Tel. 010-8332-4726</p>
+                        <p>Master. 서영호<span class="shop_blank"></span>E-mail. Ho@naver.com</p>
+                        <p>Add. 31572 부산광역시 부산진구 중앙대로 708</p>
+                        <p>1층</p>
+                    </div>
+                </div>
+                <!-- inner_con02 끝 -->
+            </div>
+        </div>
+    </div>
+    <!-- footer 끝 -->
+</div>
+
+<script>
+    document.querySelector('.QuantityUp').addEventListener('click', function () {
+        var quantityInput = document.getElementById('quantity');
+        quantityInput.value = parseInt(quantityInput.value) + 1;
+    });
+
+    document.querySelector('.QuantityDown').addEventListener('click', function () {
+        var quantityInput = document.getElementById('quantity');
+        if (parseInt(quantityInput.value) > 0) {
+            quantityInput.value = parseInt(quantityInput.value) - 1;
+        }
+    });
+
+    // 합계를 표시할 HTML 요소를 찾습니다
+    // 선택한 옵션을 표시할 HTML 요소를 찾습니다
+    var selectedOptionElement = document.getElementById('selectedOption');
+    // select 요소를 찾습니다
+    var selectElement = document.getElementById('product_option_id1');
+
+    // select 요소에 이벤트 리스너를 추가합니다
+    selectElement.addEventListener('change', function (event) {
+        // 만약 사용자가 "- [필수] 옵션을 선택해 주세요 -" 옵션을 선택했다면
+        if (selectElement.value === '*') {
+            // 이벤트를 중단합니다
+            event.preventDefault();
+        } else {
+            // 선택한 옵션의 텍스트를 가져옵니다
+            var selectedOptionText = selectElement.options[selectElement.selectedIndex].text;
+
+            // 선택한 옵션을 새 HTML 요소에 표시합니다
+            selectedOptionElement.textContent = '선택한 옵션: ' + selectedOptionText;
+            // 합계에 선택한 옵션의 가격을 추가합니다
+            totalElement.textContent = parseInt(totalElement.textContent) + parseInt(selectedOptionPrice);
+
+        }
+    });
+
+        // 질문
+        function loadQuestionForm() {
+        const container = document.getElementById('questionFormContainer');
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '/question/create', true);
+        xhr.onload = function() {
+        if (xhr.status === 200) {
+        container.innerHTML = xhr.responseText;
+    }
+    };
+        xhr.send();
+    }
+
+    // // DOM이 완전히 로드된 후 이벤트 리스너 추가
+    // document.addEventListener('DOMContentLoaded', (event) => {
+    //     const ssoTabRight = document.getElementById('sso_tab_right');
+    //     if (ssoTabRight) {
+    //         ssoTabRight.addEventListener('click', function(event) {
+    //             event.preventDefault();  // 링크 기본 동작 방지
+    //             loadQuestionForm();  // 함수 호출
+    //         });
+    //     }
+    // });
+</script>
+
+</body>
+</html>

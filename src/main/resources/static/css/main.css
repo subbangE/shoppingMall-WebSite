@@ -1,0 +1,1332 @@
+#header, .nav-container, #footer, #right_fixed_menu, #left_side, .path, #myshopMain .shopMain, .xans-mall-company, .xans-photoreview-display, .titleArea, .ec-base-product .title, .xans-product-1 .m_cate_ti, .xans-product-2 .m_cate_ti, .xans-product-3 .m_cate_ti, .title, .lookbook_title, .ec-base-tab .ss_menu, .xans-layout-productrecent .today_ti, .week_ti, #myshopMain .shopMain, .xans-myshop-orderhistorynologin, .xans-member-login, .xans-member-login .login fieldset input, .btnLogin, .ss_btn_con, .xans-product-additional, .xans-product-additional div.board, .xans-product-relation .relation, #de_info_toggle .detail_info_togg, .xans-product-detail .likeButton button span, .new_productSet, .xans-product-normalmenu, .xans-product-menupackage, .likeButton button span, .ec-base-box.searchbox, .xans-product-zoom.ss_btn_con, .xans-layout-searchheader #keyword, .btnNormal, .btnSubmit, .btnEm, .btnBasic, .sold_txt, .txt_con p, .txt_con span, .txt_con h3, .txt_con div, .txt_con ul, .txt_con li {
+    font-family: 'Lato', 'Nanum Gothic', sans-serif !important;
+}
+body, code {
+    font: 0.75em 'Lato', 'Nanum Gothic', 'Malgun Gothic', sans-serif !important;
+    color: #333;
+    background: #fff;
+    letter-spacing: 0.4px;
+}
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+    margin: 0;
+    padding: 0;
+}
+button {
+    border: none;
+    cursor: pointer;
+    font: 0.75em 'Lato', 'Nanum Gothic', 'Malgun Gothic', sans-serif !important;
+    color: #333;
+    letter-spacing: 0.4px;
+}
+
+.container {
+    margin: 0 auto;
+    clear: both;
+    width: 100%;
+    position: relative;
+}
+
+.maxwidth {
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+li {
+    list-style: none;
+}
+
+.header {
+    width: 100%;
+}
+
+/* top-bar + logo */
+.inner {
+    position: relative;
+    width: 1200px;
+    margin: 17px auto 0;
+    font-size: 11px;
+    line-height: 25px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+#lo_search {
+    position: relative;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+#lo_sns {
+    position: relative;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    margin: 10px 0 0 2px;  /* 상단 마진을 10px로 설정 */
+}
+
+.top-bar-center {
+    margin: 20px 0 0px;
+}
+
+.top-bar-left {
+    display: flex;
+    gap: 15px;
+
+    float: left;
+    width: 45%;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.top-bar-right {
+    display: flex;
+    gap: 15px;
+
+    float: right;
+    width: 55%;
+    box-sizing: border-box;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-bar a {
+    color: #111;
+    text-decoration: none;
+}
+
+.top-bar-left a {
+    margin-right: 20px;
+}
+
+.top-bar-right a {
+    margin-left: 20px;
+}
+
+#header .m_top_menu01 {
+    float: left;
+    width: 45%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 250px;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+body {
+    font-family: 'NotoSansKr-Medium', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 1300px;
+}
+
+/* 메인 네비게이션 */
+.main-nav {
+    padding: 8px 0;
+    width: 1200px;
+    margin: 0 auto;
+    height: 40px;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #E2E2E2;  /* 검은색 라인 추가 */
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 30px;
+}
+
+.main-nav-li a {
+    color: #111;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/*.main-record {*/
+/*    max-width: calc(25% - 20px); !* 최대 너비를 고정하여 일정한 간격 유지 *!*/
+/*    box-sizing: border-box;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/* 메인 시작 */
+.main-content {
+    /*width: 50%;  !* 원하는 너비로 변경하세요 *!*/
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 0 100px; /* 양쪽에 고정된 공간 확보 */
+    box-sizing: border-box; /* 패딩을 포함한 너비 */
+
+    position: relative;
+    width: 100%;
+}
+
+.ec-base-product .prdList {
+    display: table;
+    table-layout: fixed;
+    box-sizing: border-box;
+    width: 101.8%;
+    min-width: 756px;
+    margin: 0;
+    font-size: 0;
+    line-height: 0;
+}
+
+/* 메인 화면 사진 */
+.banner-img {
+    display: block;
+    width: 70%;
+    height: auto;
+    margin: 20px auto;
+}
+
+.items {
+    clear: both;
+    margin: 0px 0 0;
+}
+
+.h2-new {
+    margin: 0px auto 35px;
+}
+
+.new-text {
+    font-weight: normal;
+    font-size: 16px;
+    color: #222;
+    margin: 0px auto;
+    text-align: center;
+    letter-spacing: 0.8px;
+    word-spacing: 4px;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
+
+/*.new-text {*/
+/*    animation: underIconMove 2s ease-in 0.2s infinite alternate;*/
+/*}*/
+
+/*.All-item {*/
+/*    display: flex;*/
+/*    box-sizing: border-box;*/
+/*    align-items: flex-start;*/
+/*    justify-content: space-between;*/
+/*    margin: 10px 0;*/
+/*    gap: 15px; !* 상품 간격을 고정값으로 설정 *!*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+/*.All-item {*/
+/*    display: flex;*/
+/*    box-sizing: border-box;*/
+/*    align-items: flex-start;*/
+/*    justify-content: center; !* 항목들을 중앙에 배치 *!*/
+/*    margin: 10px auto; !* 상하 마진을 유지하면서 좌우 마진을 auto로 설정 *!*/
+/*    gap: 15px; !* 상품 간격을 고정값으로 설정 *!*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+
+.All-item {
+    display: flex;
+    flex-direction: row; /* 항목들을 행 방향으로 배치 */
+    justify-content: center; /* 주 축(여기서는 행 방향)을 따라 항목들을 중앙에 배치 */
+    align-items: center; /* 교차 축(여기서는 열 방향)을 따라 항목들을 중앙에 배치 */
+    flex-wrap: wrap; /* 필요한 경우 항목들을 여러 행으로 래핑 */
+    margin: 10px auto; /* 상하 마진을 유지하면서 좌우 마진을 auto로 설정 */
+    gap: 15px; /* 상품 간격을 고정값으로 설정 */
+}
+
+ul.grid4 > li {
+    width: 24.9%;
+}
+
+.prdList {
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    flex-wrap: wrap;
+    gap: 15px; /* 상품 간격을 설정 */
+
+    padding-inline-start: 0px;
+}
+
+.prdList > li {
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    color: #757575;
+    vertical-align: top;
+
+    width: calc(25% - 15px); /* 4개가 한 줄에 들어가도록 너비 조정 */
+    box-sizing: border-box;
+}
+
+.thumbnail {
+    /*width: 288px;*/
+    /*!* 새로 추가된 *!*/
+    /*position: relative;*/
+    /*overflow: hidden;*/
+
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.sold_wrap span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0;
+    width: 110px;
+    font-size: 12px;
+    color: #fff;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 32px;
+    transform: translate(-50%, -50%);
+}
+
+.thumbnail a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* 상품 이미지 */
+.thumbnail a img {
+    max-width: 100%;
+    width: 300px;  /* 이미지 너비를 200px로 설정 */
+    height: 300px; /* 이미지 높이를 200px로 설정 */
+    object-fit: cover;
+    box-sizing: border-box;
+}
+
+.thumbnail .over_bt_icon {
+    display: inline-block;
+}
+
+/* 아이콘 */
+.p_over_icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.thumbnail:hover .p_over_icon {
+    opacity: 1;
+}
+
+.p_over_icon img {
+    display: inline-block;
+    z-index: 1;
+    cursor: pointer;
+    margin: 0 5px;
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.All-item img {
+    vertical-align: middle;
+}
+
+.over_bt_icon .cart {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.grid4t .icon {
+    margin: 7px 0 0 0;
+    vertical-align: middle;
+}
+
+/* 설명(상품명, 가격) */
+.description {
+    margin: 10px 0 30px 0;
+    padding: 10px;
+    text-align: center;
+}
+
+.description .color {
+    overflow: hidden;
+    margin: 0 0 7px;
+    line-height: 0;
+    /*font-size: 0;*/
+    letter-spacing: 0;
+}
+
+.description .name {
+    color: #222;
+    font-size: 14px;
+    text-decoration: none;
+    margin-bottom: 5px;
+    font-weight: normal;
+    display: block;
+    line-height: 1.6;
+}
+
+.thumbnail .price {
+    margin: 10px 0 0 0;
+    font-size: 20px;
+    color: #e84660;
+}
+
+.xans-element- {
+    padding-inline-start: 0px;
+}
+
+/*.ec-base-product .price li {*/
+/*    margin-bottom: 3px;*/
+/*    display: block;*/
+/*    line-height: 1.6;*/
+/*}*/
+
+/*------------------------------*/
+
+p {
+    display: block;
+    margin: 0;
+}
+
+#footer {
+    width: 100%;
+    margin: 100px auto 0;
+    font-size: 12px;
+    line-height: 1.9;
+    color: #888;
+    max-width: 4920px;
+}
+
+#footer .inner {
+    position: relative;
+    display: table;
+    clear: both;
+    width: 100%;
+    background: #f8f8f8;
+    padding: 85px 0 65px 0;
+    margin: 75px auto 0;
+}
+
+#footer .inner_con {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* inner_con01 */
+#footer .inner_con01 {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+#footer .bottom_title {
+    clear: both;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #111;
+    letter-spacing: 1.5px;
+}
+
+#footer .bo_customer {
+    clear: both;
+}
+
+#footer .cs_tel {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#footer .cs_line {
+    float: left;
+    line-height: 1.9;
+    color: #aaa;
+    padding: 0 10px;
+}
+
+#footer .cs_txt {
+    float: left;
+}
+
+#footer .cs_txt2 {
+    clear: both;
+}
+
+#footer .cs_txt2 strong {
+    color: #333;
+    letter-spacing: 0.8px;
+    font-weight: normal;
+}
+
+#footer .bo_bank {
+    clear: both;
+    margin-top: 35px;
+}
+
+#footer .bottom_title_s {
+    clear: both;
+    font-weight: normal;
+    margin-bottom: 2px;
+    color: #111;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+}
+
+#footer .bank_txt {
+    float: left;
+}
+
+#footer .bo_delivery {
+    clear: both;
+    margin-top: 55px;
+}
+
+/* inner_con01 끝 */
+
+#footer .inner_con2 {
+    float: right;
+    text-align: right;
+    width: 50%;
+    /*box-sizing: border-box;*/
+}
+
+#footer .bottom_title {
+    clear: both;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #111;
+    letter-spacing: 1.5px;
+}
+
+#footer .shop_info {
+    line-height: 2;
+}
+
+#footer .shop_blank {
+    padding-right: 15px;
+}
+
+#footer .shop_blank {
+    padding-right: 15px;
+}
+
+#footer .inner a {
+    color: #888;
+}
+
+/*main css*/
+.main,
+.main * {
+    box-sizing: border-box;
+}
+
+.main {
+    height: 1289px;
+    position: relative;
+    overflow: hidden;
+}
+
+.userup {
+    width: 1664px;
+    height: 1291px;
+    position: absolute;
+    left: 256px;
+    top: 1px;
+    overflow: hidden;
+}
+
+.basic-information {
+    width: 910px;
+    height: 1175px;
+    position: absolute;
+    left: 120px;
+    top: 112px;
+    overflow: hidden;
+}
+
+.userupdate {
+    border-radius: 3px;
+    border-color: #999999;
+    height: 60px;
+    position: absolute;
+    right: 126px;
+    left: 45%;
+    top: 325px;
+    overflow: hidden;
+    width: 130px;
+    background: #3090d6;
+}
+
+.div {
+    color: #ffffff;
+    text-align: center;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 15.625px;
+    line-height: 24px;
+    letter-spacing: -1px;
+    font-weight: 400;
+    position: absolute;
+    left: -20px;
+    top: 23px;
+    width: 150px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancle {
+    background: #ffffff;
+    border-radius: 3px;
+    border-style: solid;
+    border-color: #999999;
+    height: 60px;
+    position: absolute;
+    right: 0px;
+    left: 85%;
+    top: 424px;
+    overflow: hidden;
+    width: 130px;
+
+}
+
+.div2 {
+    color: #000000;
+    text-align: center;
+    font-family: "Inter-Regular", sans-serif;
+    font-size: 15.625px;
+    line-height: 24px;
+    letter-spacing: -1px;
+    font-weight: 400;
+    position: absolute;
+    left: 5px;
+    top: 14px;
+    width: 90px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainsection {
+    width: 1333px;
+    height: 500px;
+    position: absolute;
+    left: 39px;
+    top: 99px;
+    overflow: hidden;
+}
+
+.addresshead {
+    background: #f7f7f7;
+    border-style: solid;
+    border-color: #f2fff4;
+    border-width: 2px 0px 0px 0px;
+    width: 1333px;
+    height: 67px;
+    position: absolute;
+    left: 0px;
+    top: 242px;
+}
+
+.link {
+    background: #ffffff;
+    border-radius: 0px 3px 0px 0px;
+    border-style: solid;
+    border-color: #d1d1d1;
+    border-width: 1px 1px 0px 1px;
+    width: 393px;
+    height: 34px;
+    position: absolute;
+    left: 170px;
+    top: 15px;
+    text-indent: 10px;
+}
+
+.div3 {
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--small-text-font-size, 16px);
+    line-height: var(--small-text-line-height, 150%);
+    font-weight: var(--small-text-font-weight, 500);
+    position: absolute;
+    left: 12px;
+    top: 4px;
+    width: 84px;
+    height: 26px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.div4 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--small-text-font-size, 16px);
+    line-height: var(--small-text-line-height, 150%);
+    font-weight: var(--small-text-font-weight, 500);
+    position: absolute;
+    left: 19px;
+    top: 14px;
+    width: 131px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-indent: 10px;
+}
+
+.namehead {
+    background: #f7f7f7;
+    border-style: solid;
+    border-color: #f2fff4;
+    border-width: 2px 0px 0px 0px;
+    width: 1333px;
+    height: 67px;
+    position: absolute;
+    left: 0px;
+    top: 161px;
+}
+
+.link2 {
+    background: #ffffff;
+    border-radius: 0px 3px 0px 0px;
+    border-style: solid;
+    border-color: #d1d1d1;
+    border-width: 1px 1px 0px 1px;
+    width: 190px;
+    height: 34px;
+    position: absolute;
+    left: 170px;
+    top: 15px;
+    text-indent: 10px;
+}
+
+.div5 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--small-text-font-size, 16px);
+    line-height: var(--small-text-line-height, 150%);
+    font-weight: var(--small-text-font-weight, 500);
+    position: absolute;
+    left: 26px;
+    top: 7px;
+    width: 139px;
+    height: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div6 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--small-text-font-size, 16px);
+    line-height: var(--small-text-line-height, 150%);
+    font-weight: var(--small-text-font-weight, 500);
+    position: absolute;
+    left: 19px;
+    top: 14px;
+    width: 131px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pwhead {
+    background: #f7f7f7;
+    border-style: solid;
+    border-color: #f2fff4;
+    border-width: 2px 0px 0px 0px;
+    width: 1333px;
+    height: 68px;
+    position: absolute;
+    left: 0px;
+    top: 78px;
+}
+
+.idhead {
+    background: #f7f7f7;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px 0px 0px 0px;
+    width: 1333px;
+    height: 67px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+.link3 {
+    background: #ffffff;
+    border-radius: 0px 3px 0px 0px;
+    border-style: solid;
+    border-color: #d1d1d1;
+    border-width: 1px 1px 0px 1px;
+    width: 190px;
+    height: 34px;
+    position: absolute;
+    left: 170px;
+    top: 15px;
+    text-indent: 10px;
+}
+
+.drv-99 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--small-text-font-size, 16px);
+    line-height: var(--small-text-line-height, 150%);
+    font-weight: var(--small-text-font-weight, 500);
+    position: absolute;
+    left: 34px;
+    top: 5px;
+    width: 123px;
+    height: 23px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.mainbar {
+    background: #ffffff;
+    border-radius: 8px;
+    height: 64px;
+    position: absolute;
+    right: 0px;
+    left: 39px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.div7 {
+    color: #ff83b0;
+    text-align: center;
+    font-family: "NotoSansKr-Medium", sans-serif;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 500;
+    position: absolute;
+    left: 175px;
+    top: 10px;
+    width: 348px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-side-bar {
+    background: #f6efef;
+    border-style: solid;
+    border-color: #e0e0e0;
+    border-width: 1px 1px 0px 0px;
+    width: 256px;
+    height: 1290px;
+    position: absolute;
+    left: 0px;
+    top: 4px;
+    overflow: hidden;
+}
+
+.product {
+    border-style: solid;
+    border-color: #e0e0e0;
+    border-width: 1px 0px 0px 0px;
+    padding: 20px 0px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 240px;
+    height: 203px;
+    position: absolute;
+    left: 8px;
+    top: 70px;
+}
+
+.prod-manage {
+    padding: 0px 16px 0px 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.my {
+    color: #000000;
+    text-align: left;
+    font-family: "Inter-SemiBold", sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 600;
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.prod-list {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 0px 16px 0px 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 40px;
+    position: relative;
+    text-decoration: none;
+}
+
+.img-member-default-1 {
+    flex-shrink: 0;
+    width: 31px;
+    height: 31px;
+    position: relative;
+    object-fit: cover;
+}
+
+.div8 {
+    color: #000000;
+    text-align: left;
+    font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--small-text-font-size, 16px);
+    line-height: var(--small-text-line-height, 150%);
+    font-weight: var(--small-text-font-weight, 500);
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.order-list {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 0px 16px 0px 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 40px;
+    position: relative;
+}
+
+._9081007-list-details-icon-1 {
+    flex-shrink: 0;
+    width: 29px;
+    height: 29px;
+    position: relative;
+    object-fit: cover;
+}
+
+.div9 {
+    color: #000000;
+    text-align: left;
+    font-family: "Inter-Medium", sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 500;
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.div10{
+    color: #000000;
+    text-align: left;
+    font-family: "Inter-Medium", sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 500;
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    left: 5px;
+}
+
+.question-list {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 0px 16px 0px 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: stretch;
+    flex-shrink: 0;
+    height: 40px;
+    position: relative;
+    text-decoration: none;
+}
+
+.image-3 {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    object-fit: cover;
+
+}
+
+.admin-welcome {
+    color: #000000;
+    text-align: center;
+    font-family: "Inter-SemiBold", sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+    position: absolute;
+    left: 51px;
+    top: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-frame,
+.main-frame * {
+    box-sizing: border-box;
+}
+
+.main-frame {
+    height: 1031px;
+    position: relative;
+}
+
+.questionhead {
+    background: #caffcf;
+    width: 910px;
+    height: 52px;
+    position: absolute;
+    left: -42px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.questionlist {
+    color: #000000;
+    text-align: center;
+    font-family: "NotoSansKr-Medium", sans-serif;
+    font-size: 25px;
+    line-height: 24px;
+    font-weight: 500;
+    position: absolute;
+    left: 300px;
+    top: 0px;
+    width: 397px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.question-bar {
+    background: #e84660;
+    height: 48px;
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 114px;
+    box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 1);
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.question-bar div {
+    color: #000000;
+    text-align: center;
+    font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--small-text-font-size, 16px);
+    line-height: var(--small-text-line-height, 150%);
+    font-weight: var(--small-text-font-weight, 500);
+    width: 140px;
+    flex: 1;
+    padding: 0px 63px 0px 29px /* Flexbox에서 각 항목이 동일한 비율로 나누어지도록 설정 */
+}
+
+.bar {
+    color: #000000;
+    text-align: center;
+    font-family: "NotoSansKr-Medium", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    position: absolute;
+    left: 19px;
+    top: 42px;
+    width: 133px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bar2 {
+    color: #000000;
+    text-align: center;
+    font-family: "NotoSansKr-Medium", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    position: absolute;
+    left: 157px;
+    top: 42px;
+    width: 208px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bar3 {
+    color: #000000;
+    text-align: center;
+    font-family: "NotoSansKr-Medium", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    position: absolute;
+    left: 331px;
+    top: 42px;
+    width: 208px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bar4 {
+    color: #000000;
+    text-align: center;
+    font-family: "NotoSansKr-Medium", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    position: absolute;
+    left: 505px;
+    top: 42px;
+    width: 208px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bar5{
+    color: #000000;
+    text-align: center;
+    font-family: "NotoSansKr-Medium", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    position: absolute;
+    left: 679px;
+    top: 42px;
+    width: 208px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.question-frame {
+    width: 908px;
+    height: 93px;
+    position: absolute;
+    left: 0px;
+    top: 163px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.frame-1 {
+    width: 1393px;
+    height: 24px;
+    position: absolute;
+    left: calc(50% - 696.5px);
+    top: calc(50% - 12.5px);
+}
+
+._1234 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--small-text-font-size, 16px);
+    line-height: var(--small-text-line-height, 150%);
+    font-weight: var(--small-text-font-weight, 500);
+    position: absolute;
+    left: 34px;
+    top: 0px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+._1 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--small-text-font-size, 16px);
+    line-height: var(--small-text-line-height, 150%);
+    font-weight: var(--small-text-font-weight, 500);
+    position: absolute;
+    left: 310px;
+    top: 0px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.div {
+    color: #000000;
+    text-align: center;
+    font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--small-text-font-size, 16px);
+    line-height: var(--small-text-line-height, 150%);
+    font-weight: var(--small-text-font-weight, 500);
+    position: absolute;
+    left: 649px;
+    top: 0px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.div2 {
+    color: #000000;
+    text-align: center;
+    font-family: var(--small-text-font-family, "Inter-Medium", sans-serif);
+    font-size: var(--small-text-font-size, 16px);
+    line-height: var(--small-text-line-height, 150%);
+    font-weight: var(--small-text-font-weight, 500);
+    position: absolute;
+    left: 1117px;
+    top: 0px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.table-head {
+    background: #f7f7f7;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 2px 0px 0px 0px;
+    width: 95.4%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    margin-top: 35px;
+    top: 87px;
+}
+
+.all-user-frame {
+    width: 910px;
+    height: 87.4%;
+    position: absolute;
+    left: 0;
+    top: 95px;
+    overflow: auto;
+    padding: 60px 63px 0 29px;
+}
+.user-frame {
+    width: 100%;
+    height: 113px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #ddd; /* 각 user-frame 사이에 구분선 추가 */
+    position: relative; /* 위치를 상대적으로 설정 */
+    top: 88px;
+}
+.logout {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+    outline: inherit;
+    font: 11px 'Lato', 'Nanum Gothic', 'Malgun Gothic', sans-serif !important;
+}
+

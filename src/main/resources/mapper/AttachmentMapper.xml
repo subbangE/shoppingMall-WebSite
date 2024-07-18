@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myapp.team.Board.Attachment.AttachmentMapper">
+
+    <insert id="insertAttachment" parameterType="com.myapp.team.Board.Attachment.Attachment">
+        INSERT INTO attachment (attachment_no, question_no, original_filename, stored_filename, attachment_path)
+        VALUES (#{attachmentNo}, #{questionNo}, #{originalFilename}, #{storedFilename}, #{attachmentPath})
+    </insert>
+
+    <select id="getAttachmentsByNo" parameterType="int" resultType="com.myapp.team.Board.Attachment.Attachment">
+        SELECT * FROM attachment WHERE question_no = #{questionNo}
+    </select>
+
+    <select id="selectAttachmentByNo" parameterType="int" resultType="com.myapp.team.Board.Attachment.Attachment">
+        SELECT * FROM attachment WHERE attachment_no = #{attachmentNo}
+    </select>
+
+    <delete id="deleteAttachmentByNo" parameterType="int">
+        DELETE FROM attachment WHERE attachment_no = #{attachmentNo}
+    </delete>
+
+</mapper>

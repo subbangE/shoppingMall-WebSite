@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+</head>
+<body>
+<h1>Shopping Cart</h1>
+<!--<div th:if="${not #lists.isEmpty(carts)}">-->
+    <table>
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+<!--            <th>Options</th>-->
+            <th>Count</th>
+            <th>Total</th>
+<!--            <th>Actions</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cart : ${carts}">
+            <td th:text="${cart.productName}">Product Name</td>
+            <td th:text="${cart.productPrice}">Price</td>
+<!--            <td th:text="${cart.options}">Options</td>-->
+            <td th:text="${cart.cartCount}">Quantity</td>
+<!--            <td th:text="${cart.productPrice * cart.cartCount}">Total</td>-->
+
+
+<!--            <td>-->
+<!--                <form th:action="@{/cart/update}" method="post">-->
+<!--                    <input type="hidden" name="cartNo" th:value="${cart.cartNo}">-->
+<!--                    <input type="number" name="cartCount" th:value="${cart.cartCount}" min="1">-->
+<!--                    <button type="submit">Update</button>-->
+<!--                </form>-->
+<!--                <form th:action="@{/cart/delete/{userNo}}" method="post">-->
+<!--                    <button type="submit">Delete</button>-->
+<!--                </form>-->
+<!--            </td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Main Page</title>
+</head>
+<body>
+<div class="container">
+    <div class="maxwidth">
+        <!-- 헤더 시작 -->
+        <header class="header">
+
+            <div class="inner">
+                <!-- top-bar 시작 -->
+                <div class="top-bar">
+                    <!-- 왼쪽 카테고리 -->
+                    <div class="top-bar-left">
+                        <!-- 로그인/로그아웃 -->
+                        <span sec:authorize="isAnonymous()"><a th:href="@{/login}">LOG-IN</a></span>
+                        <span sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post">
+                        <button class="logout" type="submit">LOG-OUT</button>
+                    </form>
+                </span>
+                        <span sec:authorize="isAnonymous()"><a href="/register">JOIN</a></span>
+                        <span sec:authorize="isAuthenticated()"><a th:href="@{'/mypage/user/' + ${#authentication.principal.userNo}}">My Page</a></span>
+                        <a href="#">ORDER</a>
+                        <a href="#">CART</a>
+                        <!-- 검색 아이콘 -->
+                        <img src="/images/icon-search.png" alt="검색" id="lo_search">
+                    </div>
+
+                    <!-- 오른쪽 카테고리 -->
+                    <div class="top-bar-right">
+                        <a href="#" class="notice">NOTICE</a>
+                        <a href="#" class="qna">Q&A</a>
+                        <a href="#" class="review">REVIEW</a>
+                        <!-- 검색 아이콘 -->
+                        <a href="https://instagram.com/" target="_blank">
+                            <img src="/images/icon-instagram.png" alt="인스타그램" id="lo_sns">
+                        </a>
+                    </div>
+
+                </div>
+                <!-- top-bar 끝 -->
+
+                <!-- 로고 -->
+                <div class="top-bar-center">
+                    <img src="/images/logo.PNG" alt="Logo" class="logo">
+                </div>
+            </div>
+            <!-- inner End -->
+
+            <!-- 메인 네비게이션 -->
+            <nav class="main-nav">
+                <ul class="main-nav-li">
+                    <li><a href="/main">홈</a></li>
+                    <li><a href="/prod/products">상품 보기</a></li>
+                    <li><a href="#">캐릭터</a></li>
+                    <li><a href="#">❤실바니안 패밀리❤</a></li>
+                    <li><a href="#">피규어</a></li>
+                    <li><a href="#">가챠/랜덤토이</a></li>
+                    <li><a href="#">소품&리빙</a></li>
+                    <li><a href="#">문구</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- 헤더 끝 -->
+
+
+        <!-- 메인 컨텐츠 시작 -->
+        <main class="main-content">
+            <div class="main">
+                <div class="userup">
+                    <div class="basic-information">
+
+                        <div class="main-frame">
+                            <div class="questionhead">
+                                <div class="questionlist">문의 내역</div>
+                            </div>
+                            <div class="table-head">
+                                <div>질문 번호</div>
+                                <div>유저 번호</div>
+                                <div>제품 번호</div>
+                                <div>질문 제목</div>
+                                <div>질문 내용</div>
+                            </div>
+                            <div class="user-frame" th:each="question : ${questionList}">
+                                    <div class="bar"  th:text="${question.questionNo}">1234</div>
+                                    <div class="bar2" th:text="${question.userNo}">1</div>
+                                    <div class="bar3" th:text="${question.productNo}">아 달라고</div>
+                                    <div class="bar4" th:text="${question.questionTitle}">아 그냥 줘</div>
+                                    <div class="bar5" th:text="${question.questionContent}">11</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-side-bar">
+                    <div class="product">
+                        <div class="prod-manage">
+                            <div class="my">MY 회원정보</div>
+                        </div>
+                        <a class="prod-list" th:href="@{../user/{userNo}(userNo =${user.userNo})}">
+                            <img class="img-member-default-1" src="/images/admin/image-10.png"/>
+                            <div class="div8">정보 수정</div>
+                        </a>
+                        <div class="order-list">
+                            <img
+                                    class="_9081007-list-details-icon-1"
+                                    src="/images/_9081007-list-details-icon-10.png"
+                            />
+                            <div class="div9">주문 내역</div>
+                        </div>
+                        <a class="question-list" th:href="@{../qlist/{userNo}(userNo =${user.userNo})}">
+                            <img class="image-3" src="/images/image-30.png"/>
+                            <div class="div10">문의내역</div>
+                        </a>
+                    </div>
+                    <div class="admin-welcome"><span th:text="${user.userName}+ '님의 마이페이지'"></span></div>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+    <!-- maxwidth -->
+
+
+    <!-- footer 시작 -->
+    <div id="footer">
+        <div class="inner">
+            <div class="inner_con">
+
+                <div class="inner_con01">
+                    <p class="bottom_title">CS CENTER</p>
+                    <div class="xans-element- xans-layout xans-layout-footer bo_customer "><!-- 고객센터정보 수정 -->
+                        <p class="cs_tel">T. 010-8332-4726</p>
+                        <p class="cs_txt">OPEN PM 14:00 - PM 20:00</p>
+                        <span class="cs_line"> / </span>
+                        <p class="cs_txt">월요일 휴무</p>
+                        <p class="cs_txt2">KAKAOTALK
+                            <strong> @ DAPALA </strong>
+                        </p>
+                        <!-- // 고객센터정보 수정 -->
+                    </div>
+
+                    <div class="bo_bank">
+                        <p class="bottom_title_s">BANK INFO</p>
+                        <!-- 은행정보 수정 -->
+                        <p class="bank_txt">카카오뱅크 3333-10-6021763</p>
+                        <span class="cs_line"> / </span>
+                        <p class="bank_txt">예금주명 ( 서영호 )</p>
+                        <!-- // 은행정보 수정 -->
+                    </div>
+                    <div class="bo_delivery">
+                        <p class="bottom_title_s">DELIVERY &amp; RETURN</p>
+                        <div>
+                            <p>한진택배 1588-0011 [ 배송조회 ]</p>
+                            <p>반품주소 : 아산시 용화고길30번길 20-5 1층 DAPALA</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- inner_con01 끝 -->
+
+                <!-- inner_con02 시작 -->
+                <div class="inner_con2">
+                    <p class="bottom_title">SHOP INFO</p>
+                    <div class="xans-element- xans-layout xans-layout-footer shop_info">
+                        <p>Company. DAPALA
+                            <span class="shop_blank"></span> Owner. 서영호
+                        </p>
+                        <p>Business License. 712-35-00653</p>
+                        <br>
+                        <p>Tel. 010-8332-4726</p>
+                        <p>Master. 서영호<span class="shop_blank"></span>E-mail. Ho@naver.com</p>
+                        <p>Add. 31572 부산광역시 부산진구 (영호동)</p>
+                        <p>1층</p>
+                    </div>
+                </div>
+                <!-- inner_con02 끝 -->
+            </div>
+        </div>
+    </div>
+    <!-- footer 끝 -->
+</div>
+<script>
+    function confirmDelete() {
+        if (confirm("정말로 탈퇴하시겠습니까?")) {
+            document.getElementById("deleteForm").submit();
+        } else {
+            alert("계정 삭제가 취소되었습니다.");
+        }
+    }
+</script>
+</body>
+</html>

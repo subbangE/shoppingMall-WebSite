@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.myapp.team.user.mapper.AdminMapper">
+
+
+    <update id="updateUserRole" parameterType="String">
+        UPDATE user
+        SET role = #{role}
+        WHERE user_id = #{userId}
+    </update>
+
+    <select id="findAllUser" resultType="com.myapp.team.user.model.User">
+        SELECT * FROM user
+    </select>
+
+    <select id="findAllProd" resultType="com.myapp.team.product.Product">
+        SELECT * FROM products
+    </select>
+
+    <select id="findAllQuestion" resultType="com.myapp.team.Board.Question.Question">
+        SELECT * FROM question
+    </select>
+
+</mapper>

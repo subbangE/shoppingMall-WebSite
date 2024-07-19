@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,26 +9,62 @@
 <body>
 
 <!-- 헤더 시작 -->
-<div class="header">
-    <div class="header-top">
-        <div>
-            <div>LOG-IN</div>
-            <div>JOIN + 1,000</div>
-            <div>MY PAGE</div>
-            <div>ORDER</div>
-            <div>CART_0</div>
+<header class="header">
+    <div class="inner">
+        <!-- top-bar 시작 -->
+        <div class="top-bar">
+            <!-- 왼쪽 카테고리 -->
+            <div class="top-bar-left">
+                <!-- 로그인/로그아웃 -->
+                <span sec:authorize="isAnonymous()"><a th:href="@{/login}">LOG-IN</a></span>
+                <span sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post">
+                        <button class="logout" type="submit">LOG-OUT</button>
+                    </form>
+                </span>
+                <span sec:authorize="isAnonymous()"><a href="/register">JOIN</a></span>
+                <span sec:authorize="isAuthenticated()"><a th:href="@{'/mypage/user/' + ${#authentication.principal.userNo}}">My Page</a></span>
+                <a href="#">ORDER</a>
+                <a href="#">CART</a>
+                <!-- 검색 아이콘 -->
+                <img src="/images/icon-search.png" alt="검색" id="lo_search">
+            </div>
+
+            <!-- 오른쪽 카테고리 -->
+            <div class="top-bar-right">
+                <a href="#" class="notice">NOTICE</a>
+                <a href="#" class="qna">Q&A</a>
+                <a href="#" class="review">REVIEW</a>
+                <!-- 검색 아이콘 -->
+                <a href="https://instagram.com/" target="_blank">
+                    <img src="/images/icon-instagram.png" alt="인스타그램" id="lo_sns">
+                </a>
+            </div>
+
         </div>
-        <div>
-            <div>NOTICE</div>
-            <div>Q&A</div>
-            <div>REVIEW</div>
-            <div>EVENT</div>
+        <!-- top-bar 끝 -->
+
+        <!-- 로고 -->
+        <div class="top-bar-center">
+            <img src="/images/logo.PNG" alt="Logo" class="logo">
         </div>
     </div>
-    <div class="header-bottom">
-        귀여운 로고
-    </div>
-</div>
+    <!-- inner End -->
+
+    <!-- 메인 네비게이션 -->
+    <nav class="main-nav">
+        <ul class="main-nav-li">
+            <li><a href="/main">홈</a></li>
+            <li><a href="/prod/products">상품 보기</a></li>
+            <li><a href="#">캐릭터</a></li>
+            <li><a href="#">❤실바니안 패밀리❤</a></li>
+            <li><a href="#">피규어</a></li>
+            <li><a href="#">가챠/랜덤토이</a></li>
+            <li><a href="#">소품&리빙</a></li>
+            <li><a href="#">문구</a></li>
+        </ul>
+    </nav>
+</header>
 <!-- 헤더 끝 -->
 
 <div class="container">
@@ -41,7 +77,7 @@
         <!-- 작성자 부분 나중에 데이터 불러오는걸로 바꿔야함 (지금은 아직 안합쳐서 입력있음) -->
         <div class="form-group-row">
             <label for="username">작성자</label>
-            <input type="text" id="username" name="username" th:value="${username}" required />
+            <input type="text" id="username" name="username" th:value="${username}" disabled />
         </div>
         <div class="form-group-row" style="display: none">
             <label for="userNo">사용자 번호</label>

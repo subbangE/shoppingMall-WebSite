@@ -1,25 +1,177 @@
-body {
-    font-family: Arial, sans-serif;
-    /*background-color: #fce4ec;*/
+body, html {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    font: 16px 'Lato', 'Nanum Gothic', 'Malgun Gothic', sans-serif !important;
+    background: #fff;
 }
 
-.container {
-    max-width: 800px;
+/* header 시작 */
+
+.header {
+    width: 100%;
+}
+
+/* top-bar + logo */
+.inner {
+    position: relative;
+    width: 1200px;
+    margin: 17px auto 0;
+    font-size: 11px;
+    line-height: 25px;
+}
+
+.logout {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    cursor: pointer;
+    outline: inherit;
+    font: 11px 'Lato', 'Nanum Gothic', 'Malgun Gothic', sans-serif !important;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+#lo_search {
+    position: relative;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+#lo_sns {
+    position: relative;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    margin: 10px 0 0 2px;  /* 상단 마진을 10px로 설정 */
+}
+
+.top-bar-center {
+    margin: 20px 0 0px;
+}
+
+.top-bar-left {
+    display: flex;
+    gap: 15px;
+
+    float: left;
+    width: 45%;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.top-bar-right {
+    display: flex;
+    gap: 15px;
+
+    float: right;
+    width: 55%;
+    box-sizing: border-box;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-bar a {
+    color: #111;
+    text-decoration: none;
+}
+
+.top-bar-left a {
+    margin-right: 20px;
+}
+
+.top-bar-right a {
+    margin-left: 20px;
+}
+
+#header .m_top_menu01 {
+    float: left;
+    width: 45%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 250px;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+}
+/* 메인 네비게이션 */
+.main-nav {
+    padding: 8px 0;
+    width: 1200px;
     margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 40px;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #E2E2E2;  /* 검은색 라인 추가 */
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 30px;
+}
+
+.main-nav-li a {
+    color: #111;
+    text-decoration: none;
+    font-size: 14px;
+}
+.footer {
+    width: 100%;
+}
+.header-top, .footer-section {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.header-top div, .footer-section div {
+    display: flex;
+    align-items: center;
+}
+.header-top div div, .footer-section div div {
+    margin-right: 20px;
+}
+.header-bottom {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* header 끝 */
+
+.container {
+    width: 900px;
+    height: 750px;
+    margin: 50px auto;
+    padding: 0 20px 20px 20px;
 }
 
 h1 {
     text-align: center;
-    color: #d81b60;
+    font-size: 27px;
 }
 
 .board-table {
+    font: 16px 'Lato', 'Nanum Gothic', 'Malgun Gothic', sans-serif !important;
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -28,12 +180,12 @@ h1 {
 .board-table th,
 .board-table td {
     padding: 12px;
-    border-bottom: 1px solid #f8bbd0;
+    border-bottom: 1px solid plum;
     text-align: left;
 }
 
 .board-table th {
-    background-color: #f48fb1;
+    background-color: plum;
     color: white;
 }
 
@@ -43,38 +195,167 @@ h1 {
 
 .board-table a {
     text-decoration: none;
-    color: #d81b60;
+    color: #000;
 }
 
 .board-table a:hover {
-    color: #ad1457;
+    color: purple;
 }
 
 .pagination {
+    font: 13px 'Lato', 'Nanum Gothic', 'Malgun Gothic', sans-serif !important;
     text-align: center;
     margin-top: 20px;
 }
 
 .pagination a {
-    color: #d81b60;
+    color: plum;
     padding: 8px 16px;
     text-decoration: none;
-    border: 1px solid #d81b60;
+    border: 1px solid plum;
     margin: 0 4px;
     border-radius: 5px;
     transition: background 0.3s;
 }
 
 .pagination a:hover {
-    background-color: #d81b60;
+    background-color: plum;
     color: white;
 }
 
 .pagination span {
     padding: 8px 16px;
-    border: 1px solid #df6c9d;
+    border: 1px solid plum;
     border-radius: 5px;
     margin: 0 4px;
-    background-color: #f48fb1;
+    background-color: plum;
     color: white;
+}
+
+/* footer 시작 */
+#footer {
+    width: 100%;
+    margin: 100px auto 0;
+    font-size: 12px;
+    line-height: 1.9;
+    color: #888;
+    max-width: 4920px;
+}
+
+#footer .inner {
+    position: relative;
+    display: table;
+    clear: both;
+    width: 100%;
+    background: #f8f8f8;
+    padding: 85px 0 65px 0;
+    margin: 75px auto 0;
+}
+
+#footer .inner_con {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* inner_con01 */
+#footer .inner_con01 {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+#footer .bottom_title {
+    clear: both;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #111;
+    letter-spacing: 1.5px;
+}
+
+#footer .bo_customer {
+    clear: both;
+}
+
+#footer .cs_tel {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#footer .cs_line {
+    float: left;
+    line-height: 1.9;
+    color: #aaa;
+    padding: 0 10px;
+}
+
+#footer .cs_txt {
+    float: left;
+}
+
+#footer .cs_txt2 {
+    clear: both;
+}
+
+#footer .cs_txt2 strong {
+    color: #333;
+    letter-spacing: 0.8px;
+    font-weight: normal;
+}
+
+#footer .bo_bank {
+    clear: both;
+    margin-top: 35px;
+}
+
+#footer .bottom_title_s {
+    clear: both;
+    font-weight: normal;
+    margin-bottom: 2px;
+    color: #111;
+    letter-spacing: 1.5px;
+    font-size: 11px;
+}
+
+#footer .bank_txt {
+    float: left;
+}
+
+#footer .bo_delivery {
+    clear: both;
+    margin-top: 55px;
+}
+/* inner_con01 끝 */
+
+#footer .inner_con2 {
+    float: right;
+    text-align: right;
+    width: 50%;
+    /*box-sizing: border-box;*/
+}
+
+#footer .bottom_title {
+    clear: both;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #111;
+    letter-spacing: 1.5px;
+}
+
+#footer .shop_info {
+    line-height: 2;
+}
+
+#footer .shop_blank {
+    padding-right: 15px;
+}
+
+#footer .shop_blank {
+    padding-right: 15px;
+}
+
+#footer .inner a {
+    color: #888;
 }

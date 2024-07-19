@@ -195,15 +195,6 @@ h1 {
     font-size: 30px;
     font-weight: bold;
 }
-/*.footer-content {*/
-/*    text-align: center;*/
-/*    padding: 10px;*/
-/*    background: #ffd9d9;*/
-/*}*/
-/*.footer-text {*/
-/*    font-size: 14px;*/
-/*    color: #ff6666;*/
-/*}*/
 .form-group-row {
     display: flex;
     justify-content: flex-end;

@@ -31,6 +31,7 @@ public class CustomSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authz) -> authz
                         .requestMatchers("/admin/**","/answer/**","/").hasAuthority("ADMIN")
+                        .requestMatchers("/question/create/**", "/question/detail/**").authenticated() // 인증된 사용자만 접근 가능
                         .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated()
                 )

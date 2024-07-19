@@ -33,7 +33,7 @@
             <!-- 오른쪽 카테고리 -->
             <div class="top-bar-right">
                 <a href="#" class="notice">NOTICE</a>
-                <a href="#" class="qna">Q&A</a>
+                <a href="/question" class="qna">Q&A</a>
                 <a href="#" class="review">REVIEW</a>
                 <!-- 검색 아이콘 -->
                 <a href="https://instagram.com/" target="_blank">
@@ -83,7 +83,7 @@
         <tbody>
         <tr th:each="question : ${questionList}">
             <td th:text="${question.questionNo}"></td>
-            <td><a th:href="@{/question/{questionNo}(questionNo=${question.questionNo})}" th:text="${question.questionTitle}"></a></td>
+            <td><a th:href="@{/question/detail/{questionNo}(questionNo=${question.questionNo})}" th:text="${question.questionTitle}"></a></td>
             <td th:text="${question.userName}"></td>
         </tr>
         </tbody>

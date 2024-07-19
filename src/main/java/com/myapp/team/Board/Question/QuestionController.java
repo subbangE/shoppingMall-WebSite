@@ -68,7 +68,7 @@ public class QuestionController {
     }
 
     // 질문과 답변 하나씩 가져 오게 하는 컨트롤러 (QuestionService 사용)
-    @GetMapping("/{questionNo}")
+    @GetMapping("/detail/{questionNo}")
     public String showQuestionDetailForm(@PathVariable int questionNo, Model model) {
         Question question = questionService.getQuestionById(questionNo);
 

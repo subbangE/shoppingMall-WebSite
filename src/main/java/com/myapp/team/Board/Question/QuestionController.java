@@ -214,7 +214,7 @@ public class QuestionController {
                 }
             }
         }
-        return "redirect:/question/{questionNo}";
+        return "redirect:/question/detail/{questionNo}";
     }
 
     // 질문 삭제하는 컨트롤러 => URL("/삭제하기 아직 모름") 마이페이지에서 삭제하기

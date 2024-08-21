@@ -35,7 +35,7 @@ public class AnswerController {
         answer.setAnswerTitle(answerTitle);
         answer.setAnswerContent(answerContent);
         answerService.insertAnswer(answer);
-        return "redirect:/question/" + questionNo;
+        return "redirect:/question/detail/" + questionNo;
     }
 
     @GetMapping("/update/{questionNo}")
@@ -52,14 +52,14 @@ public class AnswerController {
                                @RequestParam("answerTitle") String answerTitle,
                                @RequestParam("answerContent") String answerContent) {
         answerService.updateAnswer(questionNo, answerTitle, answerContent);
-        return "redirect:/question/" + questionNo;
+        return "redirect:/question/detail/" + questionNo;
     }
 
     // 답변 삭제하는 컨트롤러
     @PostMapping("/delete")
     public String deleteAnswer(@RequestParam("questionNo") int questionNo) {
         answerService.deleteAnswer(questionNo);
-        return "redirect:/question/" + questionNo;
+        return "redirect:/question/detail/" + questionNo;
     }
 
 }

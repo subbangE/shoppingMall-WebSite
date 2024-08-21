@@ -69,16 +69,13 @@
 
 <div class="container">
     <h1>질문 보기</h1>
-
     <div class="field-group">
         <label for="questionTitle">제목</label>
         <div class="value" id="questionTitle" th:text="${question.questionTitle}"></div>
     </div>
     <div class="field-group">
         <label for="questionContent">내용</label>
-        <div class="value">
             <textarea id="questionContent" readonly th:text="${question.questionContent}"></textarea>
-        </div>
     </div>
     <div class="field-group" hidden="hidden">
         <label for="userNo">작성자</label>
@@ -100,7 +97,7 @@
     <div class="buttons">
         <a href="/question" class="btn back-button">뒤로가기</a>
         <div th:if="${canEditOrDelete || isAdmin}">
-            <a th:href="@{/question/update/{questionNo}(questionNo=${question.questionNo})}" class="btn">수정</a>
+            <a th:href="@{/question/update/{questionNo}(questionNo=${question.questionNo})}" class="edit-btn">수정</a>
             <form method="post" th:action="@{/question/delete}" th:object="${question}" style="display:inline;">
                 <input type="hidden" name="questionNo" th:value="${question.questionNo}">
                 <button type="submit" class="btn delete-button">삭제</button>
@@ -108,13 +105,13 @@
         </div>
     </div>
 
+    <h1>답변</h1>
     <div class="answers-container" th:if="${question.answer != null}">
-        <h2>답변</h2>
         <div class="answer">
             <div class="answer-title" th:text="${question.answer.answerTitle}"></div>
             <div class="answer-content" th:text="${question.answer.answerContent}"></div>
             <div class="answer-buttons" th:if="${isAdmin}">
-                <a th:href="@{/answer/update/{questionNo}(questionNo=${question.questionNo})}" class="btn">수정</a>
+                <a th:href="@{/answer/update/{questionNo}(questionNo=${question.questionNo})}" class="edit-btn">수정</a>
                 <form method="post" th:action="@{/answer/delete}" th:object="${questionNo}" style="display:inline;">
                     <input type="hidden" name="questionNo" th:value="${question.answer.questionNo}">
                     <button type="submit" class="btn delete-button">삭제</button>
@@ -123,9 +120,8 @@
         </div>
     </div>
     <div class="answers-container" th:if="${question.answer == null}">
-        <h2>답변</h2>
         <div class="answer">
-            <div class="answer-content">답변이 아직 없습니다.</div>
+            <div class="answer-title">답변이 아직 없습니다.</div>
             <!-- 답변 생성 버튼 추가 -->
             <div class="answer-buttons" th:if="${isAdmin}">
                 <a th:href="@{/answer/create/{questionNo}(questionNo=${question.questionNo})}" class="btn">답변 생성</a>
